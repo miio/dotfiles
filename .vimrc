@@ -22,8 +22,14 @@ Bundle 'Shougo/neocomplcache'
 " コメントorコメントアウト
 Bundle 'scrooloose/nerdcommenter'
 
+" easymotion
+Bundle 'Lokaltog/vim-easymotion'
+
 " ブラウザで開く
 Bundle 'tyru/open-browser.vim'
+
+" ambicmd
+Bundle 'thinca/vim-ambicmd'
 
 " coffeescriptなどに使う
 Bundle 'ujihisa/shadow.vim'
@@ -33,6 +39,7 @@ Bundle 'Shougo/unite.vim'
 Bundle 'h1mesuke/unite-outline'
 Bundle 'tsukkee/unite-help'
 Bundle 'thinca/vim-unite-history'
+Bundle 'ujihisa/unite-colorscheme'
 
 " 整形
 Bundle 'h1mesuke/vim-alignta'
@@ -49,9 +56,12 @@ Bundle 'thinca/vim-quickrun'
 " リファレンスを開く
 Bundle 'thinca/vim-ref'
 Bundle 'mojako/ref-alc.vim'
+Bundle 'soh335/vim-ref-pman'
+Bundle 'mojako/ref-sources.vim'
 
 " 外側テキストオブジェクト
 Bundle 'tpope/vim-surround'
+Bundle 't9md/vim-surround_custom_mapping'
 
 " テキスト移動
 Bundle 't9md/vim-textmanip'
@@ -59,12 +69,19 @@ Bundle 't9md/vim-textmanip'
 " wやeを賢く
 Bundle 'kana/vim-smartword'
 
+" 複数ハイライト
+Bundle 't9md/vim-quickhl'
+
 " ファイラ
 Bundle 'Shougo/vimfiler'
 
 " shell
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell'
+Bundle 'ujihisa/vimshell-ssh'
+
+" echodoc
+Bundle 'Shougo/echodoc'
 
 " 移動
 Bundle 'Visual-Mark'
@@ -83,6 +100,14 @@ Bundle 'tyru/restart.vim'
 
 " あのファイルを開く
 Bundle 'kana/vim-altr'
+
+" git
+Bundle 'tpope/vim-fugitive'
+
+" eskk.vim
+" Bundle 'tyru/eskk.vim'
+" Bundle 'tyru/savemap.vim'
+" Bundle 'tyru/vice.vim'
 
 filetype plugin indent on
 
@@ -170,18 +195,14 @@ set fileformats=unix,dos,mac
 " カーソル行のハイライト
 "---------------------------------------------------------
 
-set cursorline
-
 " カレントウィンドウにのみ罫線を引く
 augroup cch
 	autocmd! cch
 	autocmd WinLeave * set nocursorline
+	autocmd WinLeave * set nocursorcolumn
 	autocmd WinEnter,BufRead * set cursorline
+	autocmd WinEnter,BufRead * set cursorcolumn
 augroup END
-
-:hi clear CursorLine
-:hi CursorLine gui=underline
-highlight CursorLine ctermbg=black guibg=white cterm=underline
 
 "---------------------------------------------------------
 " 文字コード関連
@@ -272,7 +293,7 @@ noremap ; :
 nnoremap <Space>w :<C-u>write<CR>
 
 " ESC2度押しで検索ハイライトを消す
-nnoremap <ESC><ESC> :<C-u>nohlsearch<CR><ESC>
+nnoremap <ESC><ESC> :<C-u>nohlsearch<CR>
 
 " vvで全選択
 nmap VV ggVG
@@ -282,6 +303,10 @@ nmap vv ^v$
 cnoremap <C-y> <C-r>"
 
 " 分割画面移動
+nnoremap <silent> <Down> <C-w>j:call <SID>good_height()<CR>
+nnoremap <silent> <Up> <C-w>k:call <SID>good_height()<CR>
+nnoremap <silent> <Right> <C-w>l:call <SID>good_width()<CR>
+nnoremap <silent> <Left> <C-w>h:call <SID>good_width()<CR>
 nnoremap <silent> <C-j> <C-w>j:call <SID>good_height()<CR>
 nnoremap <silent> <C-k> <C-w>k:call <SID>good_height()<CR>
 nnoremap <silent> <C-l> <C-w>l:call <SID>good_width()<CR>
@@ -331,12 +356,12 @@ nnoremap [ %
 nnoremap ] %
 
 " スクロール
-noremap <Space>j 10j
-noremap <Space>k 10k
+" noremap <Space>j 10j
+" noremap <Space>k 10k
 
 " シフト移動
-noremap J 10j
-noremap K 10k
+noremap J 30j
+noremap K 30k
 noremap L 10l
 noremap H 10h
 
@@ -346,7 +371,7 @@ noremap <Space>v :vs<CR>
 
 " キーボードマクロをQに降格
 nnoremap Q q
-nnoremap q Q
+" nnoremap q Q
 
 " ノーマルモード時にエンター2回で改行
 nnoremap <CR><CR> :<C-u>call append(expand('.'), '')<Cr>j
@@ -362,9 +387,9 @@ nnoremap <silent> <Space>tt <C-]>
 nnoremap <silent> <Space>tn :tn<CR>
 nnoremap <silent> <Space>tp :tp<CR>
 nnoremap <silent> <Space>tg g<C-]>
-nnoremap <silent> <Space>tj <C-]>:split<CR><C-o><C-w>j
+nnoremap <silent> <Space>tj <C-]>:<C-u>split<CR><C-o><C-o><C-w>j
 nnoremap <silent> <Space>tu :!ctags -R<CR>
-nnoremap <silent> <Space>tk <C-]>:vsplit<CR><C-o><C-w>l
+nnoremap <silent> <Space>tk <C-]>:<C-u>vsplit<CR><C-o><C-o><C-w>l
 
 " cscope
 nnoremap <silent> <space>sa :<C-u>cscope add cscope.out<CR>
@@ -379,6 +404,22 @@ nnoremap <silent> <space>si :<C-u>cscope find i <C-r><C-w><CR>
 "---------------------------------------------------------
 " プラグイン設定
 "---------------------------------------------------------
+" let g:eskk_dictionary = '~/.skk-jisyo'
+" let g:eskk_large_dictionary = "~/Library/Application\ Support/AquaSKK/SKK-JISYO.L"
+
+" let g:eskk_debug = 1
+" let g:eskk_egg_like_newline = 1
+" let g:eskk_revert_henkan_style = "okuri"
+" let g:eskk_enable_completion = 0
+" echodoc
+" let g:echodoc_enable_at_startup = 1
+
+" quickhl
+nmap <Leader>hh <Plug>(quickhl-toggle)
+xmap <Leader>hh <Plug>(quickhl-toggle)
+nmap <Leader>hr <Plug>(quickhl-reset)
+xmap <Leader>hr <Plug>(quickhl-reset)
+nmap <Leader>hm <Plug>(quickhl-match)
 
 " indentguides
 IndentGuidesEnable
@@ -388,6 +429,8 @@ let g:arpeggio_timeoutlen = 70
 call arpeggio#load()
 
 Arpeggio inoremap jk <Esc>
+Arpeggio onoremap jk <Esc>
+Arpeggio vnoremap jk <Esc>
 
 " smartchr.vim
 inoremap <buffer><expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
@@ -402,12 +445,15 @@ inoremap <buffer><expr> , smartchr#one_of(', ', ',')
 " Alignta(仮設定)
 vnoremap <Leader>a :Alignta 
 
+" コマンド展開
+cnoremap <expr> <Space> ambicmd#expand("\<Space>")
+cnoremap <expr> <CR>    ambicmd#expand("\<CR>")
+
 " あのファイル
-nmap <F4> <Plug>(altr-forward)
-call altr#define('*/tpl/*/%.html', '*/public_html/*/%.php')
+nmap <F4> <Plug>(altr-forward) call altr#define('*/tpl/*/%.html', '*/public_html/*/%.php')
 
 " vim-ref
-noremap <Leader>k <Plug>(ref-keyword)
+" noremap <Leader>k <Plug>(ref-keyword)
 
 " smartword.vim
 nmap w  <Plug>(smartword-w)
@@ -422,12 +468,15 @@ omap <Leader>b  <Plug>(smartword-b)
 omap <Leader>ge  <Plug>(smartword-ge)
 
 " visualmark設定
-map <silent> <Leader>ms <Plug>Vm_toggle_sign
-map <silent> <Leader>mj <Plug>Vm_goto_next_sign
-map <silent> <Leader>mk <Plug>Vm_goto_prev_sign
+map <silent> <Leader>vs <Plug>Vm_toggle_sign
+map <silent> <Leader>vj <Plug>Vm_goto_next_sign
+map <silent> <Leader>vk <Plug>Vm_goto_prev_sign
+
+" easymotion
+let g:EasyMotion_leader_key='<Leader>m'
 
 " capslock設定
-inoremap <C-a> <C-O><Plug>CapsLockToggle
+imap <C-a> <C-o><Plug>CapsLockToggle
 
 " vimshell設定
 
@@ -439,42 +488,59 @@ noremap <Leader>s :<C-u>VimShellTab<CR>
 noremap <Leader>f :<C-u>VimFilerTab<CR>
 
 " surround.vim
-let g:surround_{char2nr('s')}= "{{\1name: \r..*\r&\1}}\r{{/\1\1}}"
 let g:surround_{char2nr('S')}= "{{\r}}"
-let g:surround_{char2nr('$')}= "$\r"
-let g:surround_{char2nr('f')}= "\1name: \r..*\r&\1(\r)"
-let g:surround_{char2nr('[')}= "[\r]"
-let g:surround_{char2nr('(')}= "(\r)"
-let g:surround_{char2nr('{')}= "{\r}"
-let g:surround_{char2nr('a')}= "['\r']"
-let g:surround_{char2nr('v')}= "v(\r);"
+
+let g:surround_custom_mapping = {}
+let g:surround_custom_mapping._ = {
+	\'[': "[\r]",
+	\'(': "(\r)",
+	\}
+let g:surround_custom_mapping.php= {
+	\'{': "{\r}",
+	\'f': "\1name: \r..*\r&\1(\r)",
+	\'a': "['\r']",
+	\'v': "v(\r);"
+	\}
+let g:surround_custom_mapping.smarty= {
+	\'s': "{{\1name: \r..*\r&\1}}\r{{/\1\1}}", 
+	\'{': "{{\r}}"
+	\}
+
+imap <C-k> <C-g>s
 
 " unite
-" -auto-previewでプレビュー可能だけど、ファイルタイプがおかしくなるのでいれてない
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
-let g:unite_source_file_rec_ignore_pattern= '/templates_c'
+" let g:unite_source_file_rec_ignore_pattern= '/templates_c'
+let g:unite_source_file_mru_limit = 10000
 " let g:unite_source_file_rec_ignore_pattern= '\%(^\|/\)\.$\|\~$\|\.\%(o|exe|dll|bak|sw[po]\)$\|\%(^\|/\)\.\%(hg\|git\|bzr\|svn\)\%($\|/\)'
 " let g:unite_enable_split_vertically=1
 " let g:unite_winwidth=50
+
 " ファイル一覧
-noremap <Leader>uf :Unite -buffer-name=file file_rec/async file<CR>
+noremap <Leader>uf :Unite file_rec/async file -buffer-name=file<CR>
 " バッファ一覧(bookmarkと被るので、とりあえずヒストリのhで妥協)
-noremap <Leader>uh :Unite -buffer-name=file buffer<CR>
+noremap <Leader>uh :Unite buffer -buffer-name=file<CR>
 " お気に入り
 noremap <Leader>ub :Unite bookmark<CR>
 " 最近使ったファイルの一覧
-noremap <Leader>um :Unite -buffer-name=file file_mru<CR>
-" grep(ftpluginで、ファイルタイプ別のを指定")
-noremap <Leader>ug :Unite -buffer-name=file grep<CR>/*.
+noremap <Leader>um :Unite file_mru -buffer-name=file<CR>
+" grep
+noremap <Leader>ug :Unite grep -buffer-name=file -no-quit<CR>/*.
+" grep
+au FileType php noremap <Leader>ug :Unite -buffer-name=file grep -no-quit<CR>/*.php<CR>
+" ref
+au FileType php noremap <Leader>ur :Unite ref/phpmanual -no-quit<CR>
+" ref
+au FileType vim noremap <Leader>ur :Unite help -no-quit<CR>
 " outline
-noremap <Leader>uo :Unite outline<CR>
+noremap <Leader>uo :Unite outline -no-quit<CR>
 " tags
-noremap <Leader>ut :Unite tag<CR>
+noremap <Leader>ut :Unite tag -no-quit<CR>
 " command
 noremap <Leader>uc :Unite history/command<CR>
 " line
-noremap <Leader>ul :Unite line<CR>
+noremap <Leader>ul :Unite line -no-quit<CR>
 " register
 noremap <Leader>uy :Unite register<CR>
 " source(sourceが増えてきたので、sourceのsourceを経由する方針にしてみる)
@@ -484,6 +550,9 @@ noremap <Leader>us :Unite snippet<CR>
 " svn
 " noremap <Leader>uss :Unite svn/status<CR>
 " noremap <Leader>usd :Unite svn/diff<CR>
+
+" カラースキーム用コマンド
+command! UniteColorScheme :Unite colorscheme -auto-preview
 
 " ウィンドウを横に分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
@@ -502,6 +571,7 @@ au FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
   " Overwrite settings.
   imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
+  nmap <buffer> <space><space> <Plug>(unite_toggle_mark_current_candidate)
 endfunction
 
 " NERD Commnterの設定
@@ -540,8 +610,9 @@ smap <C-s> <Plug>(neocomplcache_snippets_expand)
 let g:neocomplcache_enable_at_startup = 1 " 自動起動
 " let g:neocomplcache_enable_auto_select = 1 " 自動で最初のを選択
 let g:neocomplcache_enable_smart_case = 1 " 大文字打つまで、小文字大文字区別しない
-" let g:neocomplcache_enable_camel_case_completion = 1	" 大文字を区切り文字に？
+let g:neocomplcache_enable_camel_case_completion = 1	" 大文字を区切り文字にあいまい検索
 let g:neocomplcache_enable_underbar_completion = 1	" 区切り文字の補完を有効化
+let g:neocomplcache_caching_limit_file_size = 500000000 " キャッシュするファイルサイズを増やす
 let g:neocomplcache_min_syntax_length = 3
 let g:NeoComplCache_EnableInfo = 1
 " let g:neocomplcache_max_try_keyword_length = 100
@@ -606,7 +677,21 @@ vmap <Leader>o <Plug>(openbrowser-open)
   " autocmd BufWritePre * if &bin | %!xxd -r
   " autocmd BufWritePost * if &bin | silent %!xxd -g 1
   " autocmd BufWritePost * set nomod | endif
-" augroup END
+
+
+" 使い捨てメモ
+command! -nargs=0 JunkFile call s:open_junk_file()
+function! s:open_junk_file()
+  let l:junk_dir = $HOME . '/Dropbox/vim_junk'. strftime('/%Y/%m/%d')
+  if !isdirectory(l:junk_dir)
+    call mkdir(l:junk_dir, 'p')
+  endif
+
+  let l:filename = input('Junk Code: ', l:junk_dir.strftime('/%H%M%S_'))
+  if l:filename != ''
+    execute 'edit ' . l:filename
+  endif
+endfunction augroup END
 
 " patemodeにF2でトグル
 set pastetoggle=<F2>
@@ -686,10 +771,6 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 set list
 set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 
-" 全角スペース表示
-highlight ZenkakuSpace cterm=underline ctermfg=red guibg=white
-match ZenkakuSpace /　/
-
 
 " GUIまわり
 if has('gui_macvim')
@@ -703,11 +784,6 @@ if has('gui_macvim')
 	let g:solarized_italic=0
 	let g:solarized_visibility="normal"
 	colorscheme solarized
-	" set background=light
-	" let g:solarized_contrast="high"
-	" let g:solarized_italic=0
-	" let g:solarized_visibility="normal"
-	" colorscheme solarized
 
 	set showtabline=2    " タブを常に表示
 	set imdisable        " IME OFF
@@ -718,8 +794,39 @@ if has('gui_macvim')
 
 	set lines=73 columns=271
 	set guioptions-=T
+	set guioptions-=m
 
 	set nomousefocus
+
+	set cursorline
+	set cursorcolumn
+
+	" 全角スペース表示
+	highlight ZenkakuSpace cterm=underline ctermfg=red guibg=red guifg=white
+	match ZenkakuSpace /　/
+
+	" visualmark
+	if &bg == "dark"
+		" highlight SignColor ctermfg=white ctermbg=blue guibg=#073672
+		highlight SignColor ctermfg=white ctermbg=blue guibg=darkblue
+	else
+		highlight SignColor ctermbg=white ctermfg=blue guibg=grey guifg=RoyalBlue3
+	endif
+
+	" カーソル位置
+	highlight CursorLine guibg=#073672
+	highlight CursorColumn guibg=#073672
+	
+	" 透明度
+	" let &transparency=0
+	" nnoremap <up> :<C-u>call <SID>relative_tranparency(5)<Cr>
+	" inoremap <up> <C-o>:call <SID>relative_tranparency(5)<Cr>
+	" nnoremap <down> :<C-u>call <SID>relative_tranparency(-5)<Cr>
+	" inoremap <down> <C-o>:call <SID>relative_tranparency(-5)<Cr>
+	" function! s:relative_tranparency(diff)
+	  " let &transparency = a:diff + &transparency
+	  " let g:transparency = &transparency
+	" endfunction
 else
 endif
 
