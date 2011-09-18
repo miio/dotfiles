@@ -1,0 +1,21 @@
+# エスケープキャラクタをCtrl+aからCtrl+zに変更。
+escape ^z^z
+# 初期メッセージ画面をオフにする。
+startup_message off
+# ハングアップ時に自動的にデタッチする。
+autodetach on
+# 可視ベルをオフにする。
+vbell off
+# フルスクリーンプログラムを別画面で実行
+altscreen on
+# 画面下部にwindow titleを表示する。
+# hardstatus alwayslastline "%{= gk}[%m/%d %02c:%s] %{gW} %-w%{= wk}%n %t%{-}%+w %=%{gk}$USER@$HOSTNAME[$LANG] (%l) "
+hardstatus alwayslastline "%`%-w%{=b bw}%n %t%{-}%+w"
+
+# screenの中でプロセスが死亡した場合^[するまでwindowを残す。
+zombie ^[
+
+bind r eval 'echo "Resize window"' 'command -c resize'
+bind -c resize ^]  command
+bind -c resize j eval 'resize +1' 'command -c resize'
+bind -c resize k eval 'resize -1' 'command -c resize'
