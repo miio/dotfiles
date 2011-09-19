@@ -59,6 +59,9 @@ Bundle 'mojako/ref-alc.vim'
 Bundle 'soh335/vim-ref-pman'
 Bundle 'mojako/ref-sources.vim'
 
+" cocoa
+Bundle 'msanders/cocoa.vim'
+
 " 外側テキストオブジェクト
 Bundle 'tpope/vim-surround'
 Bundle 't9md/vim-surround_custom_mapping'
