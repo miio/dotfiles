@@ -770,6 +770,3 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 " 改行文字などの表示
 set list
 set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
-
-" pathogen
-call pathogen#runtime_append_all_bundles()
