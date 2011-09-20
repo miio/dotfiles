@@ -112,6 +112,15 @@ Bundle 'tpope/vim-fugitive'
 " Bundle 'tyru/savemap.vim'
 " Bundle 'tyru/vice.vim'
 
+" skk.vim
+Bundle 'tyru/skk.vim'
+
+" Game
+Bundle 'mattn/invader-vim'
+Bundle 'mfumi/snake.vim'
+Bundle 'mfumi/viminesweeper'
+Bundle 'mfumi/lightsout.vim'
+
 filetype plugin indent on
 
 "---------------------------------------------------------
@@ -131,6 +140,10 @@ filetype plugin indent on
 " Ev/Rvでvimrcの編集と反映
 command! Ev edit ~/.vimrc
 command! Rv source ~/.vimrc
+
+" Eg/Rgでgvimrcの編集と反映
+command! Eg edit ~/.gvimrc
+command! Rg source ~/.gvimrc
 
 "変更されたときに自動読み込み
 set autoread
@@ -414,6 +427,9 @@ nnoremap <silent> <space>si :<C-u>cscope find i <C-r><C-w><CR>
 " let g:eskk_egg_like_newline = 1
 " let g:eskk_revert_henkan_style = "okuri"
 " let g:eskk_enable_completion = 0
+
+let g:skk_large_jisyo = $HOME . '/.vim/skk/SKK-JISYO.L'
+
 " echodoc
 " let g:echodoc_enable_at_startup = 1
 
@@ -773,6 +789,3 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 " 改行文字などの表示
 set list
 set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
-
-" pathogen
-call pathogen#runtime_append_all_bundles()
