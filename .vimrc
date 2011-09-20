@@ -112,6 +112,12 @@ Bundle 'tpope/vim-fugitive'
 " skk.vim
 Bundle 'tyru/skk.vim'
 
+" Game
+Bundle 'mattn/invader-vim'
+Bundle 'mfumi/snake.vim'
+Bundle 'mfumi/viminesweeper'
+Bundle 'mfumi/lightsout.vim'
+
 filetype plugin indent on
 
 "---------------------------------------------------------
