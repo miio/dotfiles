@@ -132,6 +132,10 @@ filetype plugin indent on
 command! Ev edit ~/.vimrc
 command! Rv source ~/.vimrc
 
+" Eg/Rgでgvimrcの編集と反映
+command! Eg edit ~/.gvimrc
+command! Rg source ~/.gvimrc
+
 "変更されたときに自動読み込み
 set autoread
 
