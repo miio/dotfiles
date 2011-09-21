@@ -627,15 +627,11 @@ imap <C-s> <Plug>(neocomplcache_snippets_expand)
 smap <C-s> <Plug>(neocomplcache_snippets_expand)
 
 let g:neocomplcache_enable_at_startup = 1 " 自動起動
-" let g:neocomplcache_enable_auto_select = 1 " 自動で最初のを選択
 let g:neocomplcache_enable_smart_case = 1 " 大文字打つまで、小文字大文字区別しない
-let g:neocomplcache_enable_camel_case_completion = 1	" 大文字を区切り文字にあいまい検索
 let g:neocomplcache_enable_underbar_completion = 1	" 区切り文字の補完を有効化
 let g:neocomplcache_caching_limit_file_size = 500000000 " キャッシュするファイルサイズを増やす
 let g:neocomplcache_min_syntax_length = 3
 let g:NeoComplCache_EnableInfo = 1
-" let g:neocomplcache_max_try_keyword_length = 100
-" let g:neocomplcache_cache_line_count=1000
 let g:neocomplcache_dictionary_file_type_lists = {
 	\'default' : '',
 	\'php' : $HOME.'/.vim/dict/php.dict',
