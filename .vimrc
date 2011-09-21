@@ -656,12 +656,6 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " vimproc
 let g:vimproc_dll_path = $HOME . '/.vim/autoload/proc.so'
 
-" Evernote
-nnoremap <silent> <Leader>ec :EvervimCreateNote<CR>
-nnoremap <silent> <Leader>es :EvervimSearchByQuery<CR>
-nnoremap <silent> <Leader>en :EvervimNotebookList<CR>
-nnoremap <silent> <Leader>et :EvervimListTags<CR>
-
 " textmanip
 " 選択したテキストの移動
 vmap <C-j> <Plug>(textmanip-move-down)
