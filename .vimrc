@@ -429,6 +429,8 @@ nnoremap <silent> <space>si :<C-u>cscope find i <C-r><C-w><CR>
 " let g:eskk_enable_completion = 0
 
 let g:skk_large_jisyo = $HOME . '/.vim/skk/SKK-JISYO.L'
+let g:skk_auto_save_jisyo = 1
+let g:skk_show_candidates_count = 2
 
 " echodoc
 " let g:echodoc_enable_at_startup = 1
