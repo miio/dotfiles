@@ -9,6 +9,7 @@ call vundle#rc()
 
 " color-scheme
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'mrkn256.vim'
 
 " 擬似capslock
 Bundle 'capslock.vim'
@@ -778,3 +779,10 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 " 改行文字などの表示
 set list
 set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
+
+if has("gui_running")
+else
+	" CUI版Vim用のコード
+	set background=dark
+	colorscheme mrkn256
+endif
