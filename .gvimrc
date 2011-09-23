@@ -14,7 +14,7 @@ if has('gui_macvim')
 	set imdisable        " IME OFF
 	set antialias        " アンチエイリアス
 
-	set gfn=Ricty\ Regular:h14
+	set gfn=Ricty\ Bold:h14
 	set gfw=
 
 	set lines=73 columns=271
@@ -25,6 +25,9 @@ if has('gui_macvim')
 
 	set cursorline
 	set cursorcolumn
+
+	" indentguides
+	IndentGuidesEnable
 
 	" 全角スペース表示
 	highlight ZenkakuSpace cterm=underline ctermfg=red guibg=red guifg=white

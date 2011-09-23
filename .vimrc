@@ -442,9 +442,6 @@ nmap <Leader>hr <Plug>(quickhl-reset)
 xmap <Leader>hr <Plug>(quickhl-reset)
 nmap <Leader>hm <Plug>(quickhl-match)
 
-" indentguides
-IndentGuidesEnable
-
 " arpeggio(同時押し設定)
 let g:arpeggio_timeoutlen = 70
 call arpeggio#load()
