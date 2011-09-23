@@ -446,6 +446,16 @@ nmap <Leader>hr <Plug>(quickhl-reset)
 xmap <Leader>hr <Plug>(quickhl-reset)
 nmap <Leader>hm <Plug>(quickhl-match)
 
+" quickrun
+" for quickrun.vim
+let g:quickrun_config = {
+			\'objc': {
+				\'command': 'cc',
+				\'exec': ['%c %s -o %s:p:r -std=c99 -framework Foundation', '%s:p:r %a', 'rm -f %s:p:r'],
+				\'tempfile': '{tempname()}.m',
+				\}
+			\}
+
 " arpeggio(同時押し設定)
 let g:arpeggio_timeoutlen = 70
 call arpeggio#load()
