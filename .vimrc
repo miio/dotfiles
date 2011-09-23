@@ -465,8 +465,8 @@ Arpeggio onoremap jk <Esc>
 Arpeggio vnoremap jk <Esc>
 
 " smartchr.vim
-inoremap <buffer><expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
-inoremap <buffer><expr> , smartchr#one_of(', ', ',')
+" inoremap <buffer><expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
+" inoremap <buffer><expr> , smartchr#one_of(', ', ',')
 
 " other
 " inoremap ( ()<Left>
