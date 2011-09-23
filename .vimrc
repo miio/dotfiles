@@ -687,16 +687,15 @@ vmap <Leader>o <Plug>(openbrowser-open)
   " autocmd BufWritePost * if &bin | silent %!xxd -g 1
   " autocmd BufWritePost * set nomod | endif
 
-
-" 使い捨てメモ
-command! -nargs=0 JunkFile call s:open_junk_file()
-function! s:open_junk_file()
-  let l:junk_dir = $HOME . '/Dropbox/vim_junk'. strftime('/%Y/%m/%d')
-  if !isdirectory(l:junk_dir)
-    call mkdir(l:junk_dir, 'p')
+" メモ
+command! -nargs=0 MemoWrite call s:open_memo_file()
+function! s:open_memo_file()
+  let l:memo_dir = $HOME . '/Dropbox/Memo'. strftime('/%Y/%m/%d')
+  if !isdirectory(l:memo_dir)
+    call mkdir(l:memo_dir, 'p')
   endif
 
-  let l:filename = input('Junk Code: ', l:junk_dir.strftime('/%H%M%S_'))
+  let l:filename = input('File Name: ', l:memo_dir.strftime('/%H%M%S_'))
   if l:filename != ''
     execute 'edit ' . l:filename
   endif
