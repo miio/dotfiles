@@ -108,6 +108,9 @@ Bundle 'kana/vim-altr'
 " git
 Bundle 'tpope/vim-fugitive'
 
+" scouter
+Bundle 'thinca/vim-scouter.git'
+
 " eskk.vim
 " Bundle 'tyru/eskk.vim'
 " Bundle 'tyru/savemap.vim'
