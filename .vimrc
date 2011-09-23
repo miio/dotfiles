@@ -687,7 +687,7 @@ vmap <Leader>o <Plug>(openbrowser-open)
   " autocmd BufWritePost * if &bin | silent %!xxd -g 1
   " autocmd BufWritePost * set nomod | endif
 
-" メモ
+" メモを作成する
 command! -nargs=0 MemoWrite call s:open_memo_file()
 function! s:open_memo_file()
   let l:memo_dir = $HOME . '/Dropbox/Memo'. strftime('/%Y/%m/%d')
@@ -700,6 +700,8 @@ function! s:open_memo_file()
     execute 'edit ' . l:filename
   endif
 endfunction augroup END
+" メモ一覧をUniteで呼び出すコマンド
+command! -nargs=0 MemoRead :Unite file_rec:~/Dropbox/Memo/ -buffer-name=file -auto-preview
 
 " patemodeにF2でトグル
 set pastetoggle=<F2>
