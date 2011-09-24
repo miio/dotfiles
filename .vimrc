@@ -119,6 +119,9 @@ Bundle 'thinca/vim-scouter.git'
 " skk.vim
 Bundle 'tyru/skk.vim'
 
+" matrix
+Bundle 'matrix.vim'
+
 " Game
 Bundle 'mattn/invader-vim'
 Bundle 'mfumi/snake.vim'
