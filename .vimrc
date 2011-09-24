@@ -658,6 +658,7 @@ let g:neocomplcache_dictionary_file_type_lists = {
 	\'scala' : $HOME.'/.vim/dict/scala.dict',
 	\'vimshell' : $HOME.'/.vim/.vimshell_hist'
 	\}
+let g:NeoComplCache_SnippetsDir = $HOME . '/.vim/snippets'
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
