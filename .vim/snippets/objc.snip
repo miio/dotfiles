@@ -1,2 +1,33 @@
 snippet init
     ${1} *${2} = [[$1 alloc] init];
+
+snippet set
+    - (void)set${1} : (${2} *) ${3}
+    {
+    	if (${4} != $3) {
+    		[$4 release];
+    		$4 = [$3 retain];
+    	}
+    	$4 = $3;
+    }
+
+snippet get
+    - (${1} *)${2}
+    {
+    	return $2;
+    }
+
+snippet setget
+    - (void)set${1} : (${2} *) ${3}
+    {
+    	if (${4} != $3) {
+    		[$4 release];
+    		$4 = [$3 retain];
+    	}
+    	$4 = $3;
+    }
+    
+    - ($2 *)$4
+    {
+    	return $4;
+    }
