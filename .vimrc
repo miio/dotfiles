@@ -488,7 +488,8 @@ cnoremap <expr> <CR>    ambicmd#expand("\<CR>")
 nmap <F4> <Plug>(altr-forward) call altr#define('*/tpl/*/%.html', '*/public_html/*/%.php')
 
 " vim-ref
-" noremap <Leader>k <Plug>(ref-keyword)
+nmap <Leader>k <Plug>(ref-keyword)
+let objc_man_key = '<Leader>k'
 
 " smartword.vim
 nmap w  <Plug>(smartword-w)
