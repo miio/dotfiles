@@ -376,6 +376,12 @@ nnoremap <silent> <F3> :<C-u>call <SID>toggle_nu()<CR>
 " 表示行移動
 nnoremap j gj
 nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+nnoremap 0 g0
+nnoremap g0 0
+nnoremap $ g$
+nnoremap g$ $
 
 " 対応する括弧に移動
 nnoremap [ %
