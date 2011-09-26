@@ -41,6 +41,7 @@ Bundle 'h1mesuke/unite-outline'
 Bundle 'tsukkee/unite-help'
 Bundle 'thinca/vim-unite-history'
 Bundle 'ujihisa/unite-colorscheme'
+Bundle 'tsukkee/unite-tag'
 
 " 整形
 Bundle 'h1mesuke/vim-alignta'
@@ -424,7 +425,7 @@ nnoremap <silent> <Space>te :TagExplorer<CR>
 nnoremap <silent> <Space>tt <C-]>
 nnoremap <silent> <Space>tn :tn<CR>
 nnoremap <silent> <Space>tp :tp<CR>
-nnoremap <silent> <Space>tg g<C-]>
+nnoremap <silent> <Space>tg :<C-u>UniteWithCursorWord -immediately tag<CR>
 nnoremap <silent> <Space>tj <C-]>:<C-u>split<CR><C-o><C-o><C-w>j
 nnoremap <silent> <Space>tu :!ctags -R<CR>
 nnoremap <silent> <Space>tk <C-]>:<C-u>vsplit<CR><C-o><C-o><C-w>l
