@@ -744,6 +744,8 @@ endfunction augroup END
 " メモ一覧をUniteで呼び出すコマンド
 command! -nargs=0 MemoRead :Unite file_rec:~/Dropbox/Memo/ -buffer-name=file -auto-preview
 
+command! -nargs=0 WeightRecode :edit ~/Dropbox/Recode/weight.cvs
+
 " patemodeにF2でトグル
 set pastetoggle=<F2>
 
