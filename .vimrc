@@ -123,6 +123,10 @@ Bundle 'tyru/skk.vim'
 " matrix
 Bundle 'matrix.vim'
 
+" <c-a><c-x>で変更できるものを増やす
+" 自分の設定が悪いため、monday.vimの最後のマッピングをnmapからnnoremapに書き換えないと動かない
+Bundle 'yuroyoro/monday'
+
 " Game
 Bundle 'mattn/invader-vim'
 Bundle 'mfumi/snake.vim'
