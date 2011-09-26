@@ -383,6 +383,12 @@ nnoremap g0 0
 nnoremap $ g$
 nnoremap g$ $
 
+" ExCommandの履歴を遡るのを楽に
+cnoremap <C-p>  <Up>
+cnoremap <Up>   <C-p>
+cnoremap <C-n>  <Down>
+cnoremap <Down> <C-n>
+
 " 対応する括弧に移動
 nnoremap [ %
 nnoremap ] %
