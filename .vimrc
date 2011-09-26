@@ -316,6 +316,9 @@ vnoremap * "zy:let @/ = @z<CR>n
 noremap : ;
 noremap ; :
 
+" 最後に編集したところを選択
+nnoremap gc `[v`]
+
 " 保存
 nnoremap <Space>w :<C-u>write<CR>
 
