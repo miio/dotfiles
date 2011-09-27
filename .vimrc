@@ -591,9 +591,8 @@ noremap <Leader>ug :Unite grep -buffer-name=file -no-quit<CR>/*.
 " grep
 au FileType php noremap <Leader>ug :Unite -buffer-name=file grep -no-quit<CR>/*.php<CR>
 " ref
-au FileType php noremap <Leader>ur :Unite ref/phpmanual -no-quit<CR>
-" ref
-au FileType vim noremap <Leader>ur :Unite help -no-quit<CR>
+au FileType php noremap <Leader>ur :Unite ref/phpmanual<CR>
+au FileType vim noremap <Leader>ur :Unite help<CR>
 " outline
 noremap <Leader>uo :Unite outline -no-quit<CR>
 " tags
