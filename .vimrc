@@ -472,6 +472,8 @@ nmap <Leader>hr <Plug>(quickhl-reset)
 xmap <Leader>hr <Plug>(quickhl-reset)
 nmap <Leader>hm <Plug>(quickhl-match)
 
+let g:vimfiler_as_default_explorer = 1
+
 " quickrun
 " for quickrun.vim
 let g:quickrun_config = {
