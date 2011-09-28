@@ -557,7 +557,7 @@ imap <C-k> <C-g>s
 
 " unite
 " 入力モードで開始する
-let g:unite_enable_start_insert=0
+let g:unite_enable_start_insert=1
 " let g:unite_source_file_rec_ignore_pattern= '/templates_c'
 let g:unite_source_file_mru_limit = 10000
 " let g:unite_source_file_rec_ignore_pattern= '\%(^\|/\)\.$\|\~$\|\.\%(o|exe|dll|bak|sw[po]\)$\|\%(^\|/\)\.\%(hg\|git\|bzr\|svn\)\%($\|/\)'
