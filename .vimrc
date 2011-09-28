@@ -323,9 +323,6 @@ noremap ; :
 " 最後に編集したところを選択
 nnoremap gc `[v`]
 
-" 保存
-nnoremap <Space>w :<C-u>write<CR>
-
 " ESC2度押しで検索ハイライトを消す
 nnoremap <ESC><ESC> :<C-u>nohlsearch<CR>
 
@@ -337,24 +334,13 @@ nmap vv ^v$
 cnoremap <C-y> <C-r>"
 
 " 分割画面移動
-nnoremap <silent> <Down> <C-w>j:call <SID>good_height()<CR>
-nnoremap <silent> <Up> <C-w>k:call <SID>good_height()<CR>
-nnoremap <silent> <Right> <C-w>l:call <SID>good_width()<CR>
-nnoremap <silent> <Left> <C-w>h:call <SID>good_width()<CR>
-nnoremap <silent> <C-j> <C-w>j:call <SID>good_height()<CR>
-nnoremap <silent> <C-k> <C-w>k:call <SID>good_height()<CR>
-nnoremap <silent> <C-l> <C-w>l:call <SID>good_width()<CR>
-nnoremap <silent> <C-h> <C-w>h:call <SID>good_width()<CR>
-function! s:good_width()
-	if winwidth(0) < 84
-		vertical resize 84
-	endif
-endfunction
-function! s:good_height()
-	if winheight(0) < 30
-		resize 30
-	endif
-endfunction
+nnoremap <silent> <space>wj <C-w>j
+nnoremap <silent> <space>wk <C-w>k
+nnoremap <silent> <space>wl <C-w>l
+nnoremap <silent> <space>wh <C-w>h
+nnoremap <silent> <space>wr <C-w>r
+nnoremap <silent> <space>w= <C-w>=
+nnoremap <silent> <space>ww <C-w>w
 
 " タブ移動
 nnoremap <Leader>n gt
