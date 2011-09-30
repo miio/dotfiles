@@ -129,6 +129,8 @@ Bundle 'thinca/vim-poslist'
 " 自分の設定が悪いため、monday.vimの最後のマッピングをnmapからnnoremapに書き換えないと動かない
 Bundle 'yuroyoro/monday'
 
+Bundle 'houtsnip/vim-emacscommandline'
+
 " Game
 Bundle 'mattn/invader-vim'
 Bundle 'mfumi/snake.vim'
