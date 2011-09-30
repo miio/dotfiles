@@ -122,6 +122,9 @@ Bundle 'tyru/skk.vim'
 " matrix
 Bundle 'matrix.vim--Yang'
 
+" calendar
+Bundle 'mattn/calendar-vim'
+
 " 移動を細かく記録する
 Bundle 'thinca/vim-poslist'
 
