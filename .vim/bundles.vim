@@ -125,6 +125,9 @@ Bundle 'matrix.vim--Yang'
 " calendar
 Bundle 'mattn/calendar-vim'
 
+" Phrase
+Bundle 'phrase.vim'
+
 " 移動を細かく記録する
 Bundle 'thinca/vim-poslist'
 
