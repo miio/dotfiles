@@ -129,7 +129,11 @@ Bundle 'thinca/vim-poslist'
 " 自分の設定が悪いため、monday.vimの最後のマッピングをnmapからnnoremapに書き換えないと動かない
 Bundle 'yuroyoro/monday'
 
+" コマンドラインでemacsライクな移動ができるように
 Bundle 'houtsnip/vim-emacscommandline'
+
+" 変数名を規則に従って変換
+Bundle 'tpope/vim-abolish'
 
 " Game
 Bundle 'mattn/invader-vim'
