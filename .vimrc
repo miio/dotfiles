@@ -322,6 +322,11 @@ let g:skk_large_jisyo = $HOME . '/.vim/skk/SKK-JISYO.L'
 let g:skk_auto_save_jisyo = 1
 let g:skk_show_candidates_count = 2
 
+" poslist.vim
+map <c-o> <Plug>(poslist-prev-pos)
+map <c-i> <Plug>(poslist-next-pos)
+let g:poslist_histsize = 10000
+
 " echodoc
 " let g:echodoc_enable_at_startup = 1
 
