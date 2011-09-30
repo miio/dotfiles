@@ -112,6 +112,9 @@ Bundle 'tpope/vim-fugitive'
 " scouter
 Bundle 'thinca/vim-scouter.git'
 
+" localvimrc
+Bundle 'thinca/vim-localrc'
+
 " eskk.vim
 " Bundle 'tyru/eskk.vim'
 " Bundle 'tyru/savemap.vim'
