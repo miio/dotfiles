@@ -122,8 +122,8 @@ Bundle 'tyru/skk.vim'
 " matrix
 Bundle 'matrix.vim--Yang'
 
-" sudo
-Bundle 'sudo.vim'
+" 移動を細かく記録する
+Bundle 'thinca/vim-poslist'
 
 " <c-a><c-x>で変更できるものを増やす
 " 自分の設定が悪いため、monday.vimの最後のマッピングをnmapからnnoremapに書き換えないと動かない
@@ -134,6 +134,5 @@ Bundle 'mattn/invader-vim'
 Bundle 'mfumi/snake.vim'
 Bundle 'mfumi/viminesweeper'
 Bundle 'mfumi/lightsout.vim'
-Bundle 'sudoku_game'
 
 filetype plugin indent on
