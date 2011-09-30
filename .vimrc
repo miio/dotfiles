@@ -197,6 +197,9 @@ noremap ; :
 " 最後に編集したところを選択
 nnoremap gc `[v`]
 
+" ペーストしたテキストを再選択
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
 " ESC2度押しで検索ハイライトを消す
 nnoremap <ESC><ESC> :<C-u>nohlsearch<CR>
 
