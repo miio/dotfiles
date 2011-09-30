@@ -7,7 +7,7 @@ autocmd!
 
 " Vundleの設定を読み込む
 if filereadable(expand('~/.vim/bundles.vim'))
-	source ~/.vim/bundles.vim
+    source ~/.vim/bundles.vim
 endif
 
 set nocompatible
@@ -40,10 +40,9 @@ set scrolloff=999
 " <Leader>を,に
 let mapleader = ","
 
-" モードラインを有効にする
-set nocompatible
-set modeline
-set modelines=3
+" モードラインを無効にする
+set nomodeline
+set modelines=0
 
 " 行数を表示
 set number
@@ -92,7 +91,7 @@ set smartindent
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-set noexpandtab
+set expandtab
 
 set fileformats=unix,dos,mac
 
@@ -102,11 +101,11 @@ set fileformats=unix,dos,mac
 
 " カレントウィンドウにのみ罫線を引く
 augroup cch
-	autocmd! cch
-	autocmd WinLeave * set nocursorline
-	autocmd WinLeave * set nocursorcolumn
-	autocmd WinEnter,BufRead * set cursorline
-	autocmd WinEnter,BufRead * set cursorcolumn
+    autocmd! cch
+    autocmd WinLeave * set nocursorline
+    autocmd WinLeave * set nocursorcolumn
+    autocmd WinEnter,BufRead * set cursorline
+    autocmd WinEnter,BufRead * set cursorcolumn
 augroup END
 
 "---------------------------------------------------------
@@ -115,60 +114,60 @@ augroup END
 
 " 文字コードの自動認識
 if &encoding !=# 'utf-8'
-  set encoding=japan
-  set fileencoding=japan
+    set encoding=japan
+    set fileencoding=japan
 endif
 if has('iconv')
-  let s:enc_euc = 'euc-jp'
-  let s:enc_jis = 'iso-2022-jp'
-  " iconvがeucJP-msに対応しているかをチェック
-  if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
-    let s:enc_euc = 'eucjp-ms'
-    let s:enc_jis = 'iso-2022-jp-3'
-  " iconvがJISX0213に対応しているかをチェック
-  elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
-    let s:enc_euc = 'euc-jisx0213'
-    let s:enc_jis = 'iso-2022-jp-3'
-  endif
-  " fileencodingsを構築
-  if &encoding ==# 'utf-8'
-    let s:fileencodings_default = &fileencodings
-    let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
-    let &fileencodings = &fileencodings .','. s:fileencodings_default
-    unlet s:fileencodings_default
-  else
-    let &fileencodings = &fileencodings .','. s:enc_jis
-    set fileencodings+=utf-8,ucs-2le,ucs-2
-    if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
-      set fileencodings+=cp932
-      set fileencodings-=euc-jp
-      set fileencodings-=euc-jisx0213
-      set fileencodings-=eucjp-ms
-      let &encoding = s:enc_euc
-      let &fileencoding = s:enc_euc
-    else
-      let &fileencodings = &fileencodings .','. s:enc_euc
+    let s:enc_euc = 'euc-jp'
+    let s:enc_jis = 'iso-2022-jp'
+    " iconvがeucJP-msに対応しているかをチェック
+    if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
+        let s:enc_euc = 'eucjp-ms'
+        let s:enc_jis = 'iso-2022-jp-3'
+        " iconvがJISX0213に対応しているかをチェック
+    elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
+        let s:enc_euc = 'euc-jisx0213'
+        let s:enc_jis = 'iso-2022-jp-3'
     endif
-  endif
-  " 定数を処分
-  unlet s:enc_euc
-  unlet s:enc_jis
+    " fileencodingsを構築
+    if &encoding ==# 'utf-8'
+        let s:fileencodings_default = &fileencodings
+        let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
+        let &fileencodings = &fileencodings .','. s:fileencodings_default
+        unlet s:fileencodings_default
+    else
+        let &fileencodings = &fileencodings .','. s:enc_jis
+        set fileencodings+=utf-8,ucs-2le,ucs-2
+        if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
+            set fileencodings+=cp932
+            set fileencodings-=euc-jp
+            set fileencodings-=euc-jisx0213
+            set fileencodings-=eucjp-ms
+            let &encoding = s:enc_euc
+            let &fileencoding = s:enc_euc
+        else
+            let &fileencodings = &fileencodings .','. s:enc_euc
+        endif
+    endif
+    " 定数を処分
+    unlet s:enc_euc
+    unlet s:enc_jis
 endif
 
 " 日本語を含まない場合は fileencoding に encoding を使うようにする
 if has('autocmd')
-  function! AU_ReCheck_FENC()
-    if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
-      let &fileencoding=&encoding
-    endif
-  endfunction
-  autocmd BufReadPost * call AU_ReCheck_FENC()
+    function! AU_ReCheck_FENC()
+        if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
+            let &fileencoding=&encoding
+        endif
+    endfunction
+    autocmd BufReadPost * call AU_ReCheck_FENC()
 endif
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
 " □とか○の文字があってもカーソル位置がずれないようにする
 if exists('&ambiwidth')
-  set ambiwidth=double
+    set ambiwidth=double
 endif
 
 "---------------------------------------------------------
@@ -231,16 +230,16 @@ nnoremap <Leader>p gT
 
 " 行数表示変更
 function! s:toggle_nu()
-	if !&number && !&relativenumber
-		set number
-		set norelativenumber
-	elseif &number
-		set nonumber
-		set relativenumber
-	elseif &relativenumber
-		set nonumber
-		set norelativenumber
-	endif
+    if !&number && !&relativenumber
+        set number
+        set norelativenumber
+    elseif &number
+        set nonumber
+        set relativenumber
+    elseif &relativenumber
+        set nonumber
+        set norelativenumber
+    endif
 endfunction
 nnoremap <silent> <F3> :<C-u>call <SID>toggle_nu()<CR>
 
@@ -345,12 +344,12 @@ let g:vimfiler_as_default_explorer = 1
 " quickrun
 " for quickrun.vim
 let g:quickrun_config = {
-			\'objc': {
-				\'command': 'cc',
-				\'exec': ['%c %s -o %s:p:r -std=c99 -framework Foundation', '%s:p:r %a', 'rm -f %s:p:r'],
-				\'tempfile': '{tempname()}.m',
-				\}
-			\}
+            \'objc': {
+            \'command': 'cc',
+            \'exec': ['%c %s -o %s:p:r -std=c99 -framework Foundation', '%s:p:r %a', 'rm -f %s:p:r'],
+            \'tempfile': '{tempname()}.m',
+            \}
+            \}
 
 " arpeggio(同時押し設定)
 let g:arpeggio_timeoutlen = 70
@@ -421,19 +420,19 @@ let g:surround_{char2nr('S')}= "{{\r}}"
 
 let g:surround_custom_mapping = {}
 let g:surround_custom_mapping._ = {
-	\'[': "[\r]",
-	\'(': "(\r)",
-	\}
+            \'[': "[\r]",
+            \'(': "(\r)",
+            \}
 let g:surround_custom_mapping.php= {
-	\'{': "{\r}",
-	\'f': "\1name: \r..*\r&\1(\r)",
-	\'a': "['\r']",
-	\'v': "v(\r);"
-	\}
+            \'{': "{\r}",
+            \'f': "\1name: \r..*\r&\1(\r)",
+            \'a': "['\r']",
+            \'v': "v(\r);"
+            \}
 let g:surround_custom_mapping.smarty= {
-	\'s': "{{\1name: \r..*\r&\1}}\r{{/\1\1}}", 
-	\'{': "{{\r}}"
-	\}
+            \'s': "{{\1name: \r..*\r&\1}}\r{{/\1\1}}", 
+            \'{': "{{\r}}"
+            \}
 
 imap <C-k> <C-g>s
 
@@ -497,9 +496,9 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 " 初期設定関数を起動する
 au FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
-  " Overwrite settings.
-  imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
-  nmap <buffer> <space><space> <Plug>(unite_toggle_mark_current_candidate)
+    " Overwrite settings.
+    imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
+    nmap <buffer> <space><space> <Plug>(unite_toggle_mark_current_candidate)
 endfunction
 
 " NERD Commnterの設定
@@ -542,11 +541,11 @@ let g:neocomplcache_caching_limit_file_size = 500000000 " キャッシュする�
 let g:neocomplcache_min_syntax_length = 3
 let g:NeoComplCache_EnableInfo = 1
 let g:neocomplcache_dictionary_file_type_lists = {
-	\'default' : '',
-	\'php' : $HOME.'/.vim/dict/php.dict',
-	\'scala' : $HOME.'/.vim/dict/scala.dict',
-	\'vimshell' : $HOME.'/.vim/.vimshell_hist'
-	\}
+            \'default' : '',
+            \'php' : $HOME.'/.vim/dict/php.dict',
+            \'scala' : $HOME.'/.vim/dict/scala.dict',
+            \'vimshell' : $HOME.'/.vim/.vimshell_hist'
+            \}
 let g:NeoComplCache_SnippetsDir = $HOME . '/.vim/snippets'
 
 " Enable omni completion.
@@ -558,7 +557,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 " if !exists('g:neocomplcache_omni_patterns')
-	" let g:neocomplcache_omni_patterns = {}
+" let g:neocomplcache_omni_patterns = {}
 " endif
 " let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 " autocmd FileType php setlocal omnifunc=phpcomplete#Complete
@@ -589,26 +588,26 @@ vmap <Leader>o <Plug>(openbrowser-open)
 
 " 覚えていない
 " augroup Binary
-  " autocmd!
-  " autocmd BufReadPre  *.bin let &bin=1
-  " autocmd BufReadPost * if &bin | silent %!xxd -g 1
-  " autocmd BufReadPost * set filetype=xxd | endif
-  " autocmd BufWritePre * if &bin | %!xxd -r
-  " autocmd BufWritePost * if &bin | silent %!xxd -g 1
-  " autocmd BufWritePost * set nomod | endif
+" autocmd!
+" autocmd BufReadPre  *.bin let &bin=1
+" autocmd BufReadPost * if &bin | silent %!xxd -g 1
+" autocmd BufReadPost * set filetype=xxd | endif
+" autocmd BufWritePre * if &bin | %!xxd -r
+" autocmd BufWritePost * if &bin | silent %!xxd -g 1
+" autocmd BufWritePost * set nomod | endif
 
 " メモを作成する
 command! -nargs=0 MemoWrite call s:open_memo_file()
 function! s:open_memo_file()
-  let l:memo_dir = $HOME . '/Dropbox/Memo'. strftime('/%Y/%m/%d')
-  if !isdirectory(l:memo_dir)
-    call mkdir(l:memo_dir, 'p')
-  endif
+    let l:memo_dir = $HOME . '/Dropbox/Memo'. strftime('/%Y/%m/%d')
+    if !isdirectory(l:memo_dir)
+        call mkdir(l:memo_dir, 'p')
+    endif
 
-  let l:filename = input('File Name: ', l:memo_dir.strftime('/%H%M%S_'))
-  if l:filename != ''
-    execute 'edit ' . l:filename
-  endif
+    let l:filename = input('File Name: ', l:memo_dir.strftime('/%H%M%S_'))
+    if l:filename != ''
+        execute 'edit ' . l:filename
+    endif
 endfunction augroup END
 " メモ一覧をUniteで呼び出すコマンド
 command! -nargs=0 MemoRead :Unite file_rec:~/Dropbox/Memo/ -buffer-name=file -auto-preview
@@ -632,17 +631,17 @@ set foldmethod=manual
 command! -nargs=1 Type :set filetype=<args>
 
 function! PHPLint()
-	let result = system( &ft . ' -l ' . bufname(""))
-	echo result
+    let result = system( &ft . ' -l ' . bufname(""))
+    echo result
 endfunction
 " autocmd BufWritePost *.php call PHPLint()
 noremap <Leader>l :<C-u>call PHPLint()<CR>
 
 " マッピングチェック
 command!
-\   -nargs=* -complete=mapping
-\   AllMaps
-\   map <args> | map! <args> | lmap <args>
+            \   -nargs=* -complete=mapping
+            \   AllMaps
+            \   map <args> | map! <args> | lmap <args>
 
 " テンプレート設定
 autocmd BufNewFile *.php 0r $HOME/.vim/template/php.txt
@@ -695,7 +694,7 @@ set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 
 if has("gui_running")
 else
-	" CUI版Vim用のコード
-	set background=dark
-	colorscheme mrkn256
+    " CUI版Vim用のコード
+    set background=dark
+    colorscheme mrkn256
 endif
