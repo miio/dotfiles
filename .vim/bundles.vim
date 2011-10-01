@@ -84,9 +84,6 @@ Bundle 'ujihisa/vimshell-ssh'
 " echodoc
 Bundle 'Shougo/echodoc'
 
-" 移動
-Bundle 'Visual-Mark'
-
 " html高速入力
 Bundle 'mattn/zencoding-vim'
 
