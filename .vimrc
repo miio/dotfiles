@@ -618,8 +618,9 @@ vmap <C-d> <Plug>(textmanip-duplicate-down)
 nmap <C-d> <Plug>(textmanip-duplicate-down)
 
 " open-browser.vim
-nmap <Leader>o <Plug>(openbrowser-open)
-vmap <Leader>o <Plug>(openbrowser-open)
+nmap <Leader>o <Plug>(openbrowser-smart-search)
+vmap <Leader>o <Plug>(openbrowser-smart-search)
+command! -nargs=1 Google :OpenBrowserSearch <args>
 
 "---------------------------------------------------------
 " 未整理
