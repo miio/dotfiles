@@ -241,7 +241,7 @@ function! s:toggle_nu()
         set norelativenumber
     endif
 endfunction
-nnoremap <silent> <F3> :<C-u>call <SID>toggle_nu()<CR>
+" nnoremap <silent> <F3> :<C-u>call <SID>toggle_nu()<CR>
 
 " 表示行移動
 nnoremap j gj
@@ -319,6 +319,9 @@ nnoremap <silent> <space>si :<C-u>cscope find i <C-r><C-w><CR>
 " let g:eskk_egg_like_newline = 1
 " let g:eskk_revert_henkan_style = "okuri"
 " let g:eskk_enable_completion = 0
+
+" F5でGundoを開く
+noremap <F5> :GundoToggle<CR>
 
 let g:skk_large_jisyo = $HOME . '/.vim/skk/SKK-JISYO.L'
 let g:skk_auto_save_jisyo = 1

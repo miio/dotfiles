@@ -122,6 +122,9 @@ Bundle 'tyru/skk.vim'
 " matrix
 Bundle 'matrix.vim--Yang'
 
+" gundo
+Bundle 'sjl/gundo.vim'
+
 " calendar
 Bundle 'mattn/calendar-vim'
 
