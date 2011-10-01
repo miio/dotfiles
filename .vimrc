@@ -312,20 +312,17 @@ nnoremap <silent> <space>si :<C-u>cscope find i <C-r><C-w><CR>
 "---------------------------------------------------------
 " プラグイン設定
 "---------------------------------------------------------
-" let g:eskk_dictionary = '~/.skk-jisyo'
-" let g:eskk_large_dictionary = "~/Library/Application\ Support/AquaSKK/SKK-JISYO.L"
-
-" let g:eskk_debug = 1
-" let g:eskk_egg_like_newline = 1
-" let g:eskk_revert_henkan_style = "okuri"
-" let g:eskk_enable_completion = 0
 
 " F5でGundoを開く
 noremap <F5> :GundoToggle<CR>
 
-let g:skk_large_jisyo = $HOME . '/.vim/skk/SKK-JISYO.L'
-let g:skk_auto_save_jisyo = 1
-let g:skk_show_candidates_count = 2
+let g:eskk#large_dictionary = '~/.vim/skk/skk-jisyo.l'
+let g:eskk#show_candidates_count = 2
+
+" TODO: eskkとskkを両立できるようにする
+" let g:skk_large_jisyo = $home . '/.vim/skk/skk-jisyo.l'
+" let g:skk_auto_save_jisyo = 1
+" let g:skk_show_candidates_count = 2
 
 function! s:growl(title, message)
     execute printf('silent !growlnotify -t %s -m %s -H localhost',

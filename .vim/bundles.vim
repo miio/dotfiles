@@ -109,12 +109,12 @@ Bundle 'thinca/vim-scouter.git'
 Bundle 'thinca/vim-localrc'
 
 " eskk.vim
-" Bundle 'tyru/eskk.vim'
-" Bundle 'tyru/savemap.vim'
-" Bundle 'tyru/vice.vim'
+Bundle 'tyru/eskk.vim'
+Bundle 'tyru/savemap.vim'
+Bundle 'tyru/vice.vim'
 
 " skk.vim
-Bundle 'tyru/skk.vim'
+" Bundle 'tyru/skk.vim'
 
 " matrix
 Bundle 'matrix.vim--Yang'
