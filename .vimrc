@@ -371,13 +371,16 @@ let g:vimfiler_as_default_explorer = 1
 
 " quickrun
 " for quickrun.vim
-let g:quickrun_config = {
-            \'objc': {
-            \'command': 'cc',
-            \'exec': ['%c %s -o %s:p:r -std=c99 -framework Foundation', '%s:p:r %a', 'rm -f %s:p:r'],
-            \'tempfile': '{tempname()}.m',
-            \}
-            \}
+
+" let g:quickrun_config = {
+            " \'objc': {
+            " \'command': 'cc',
+            " \'exec': ['%c %s -o %s:p:r -std=c99 -framework Foundation', '%s:p:r %a', 'rm -f %s:p:r'],
+            " \'tempfile': '{tempname()}.m',
+            " \}
+            " \}
+
+autocmd FileType objc nmap <Leader>r <d-r>
 
 " arpeggio(同時押し設定)
 let g:arpeggio_timeoutlen = 70
