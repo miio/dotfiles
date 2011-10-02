@@ -132,8 +132,7 @@ Bundle 'phrase.vim'
 Bundle 'thinca/vim-poslist'
 
 " <c-a><c-x>で変更できるものを増やす
-" 自分の設定が悪いため、monday.vimの最後のマッピングをnmapからnnoremapに書き換えないと動かない
-Bundle 'yuroyoro/monday'
+Bundle 'tekkoc/monday'
 
 " コマンドラインでemacsライクな移動ができるように
 Bundle 'houtsnip/vim-emacscommandline'
