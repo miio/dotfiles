@@ -314,43 +314,23 @@ nnoremap <silent> <space>si :<C-u>cscope find i <C-r><C-w><CR>
 "---------------------------------------------------------
 
 " F5でGundoを開く
-noremap <F5> :GundoToggle<CR>
+noremap <F3> :GundoToggle<CR>
 
-let g:eskk#large_dictionary = '~/.vim/skk/skk-jisyo.l'
-let g:eskk#show_candidates_count = 2
+if has('vim_starting')
+    let g:eskk#large_dictionary = '~/.vim/skk/skk-jisyo.l'
+    let g:eskk#show_candidates_count = 2
+endif
 
 " TODO: eskkとskkを両立できるようにする
 " let g:skk_large_jisyo = $home . '/.vim/skk/skk-jisyo.l'
 " let g:skk_auto_save_jisyo = 1
 " let g:skk_show_candidates_count = 2
 
-function! s:growl(title, message)
-    execute printf('silent !growlnotify -t %s -m %s -H localhost',
-        \    shellescape(a:title, 1), shellescape(a:message, 1))
-endfunction
-
 " lingr
 let g:lingr_vim_user = 'tek_koc'
 if filereadable(expand('~/Dropbox/.password/.lingr_account.vim'))
     source ~/Dropbox/.password/.lingr_account.vim
 endif
-augroup lingr-vim
-    autocmd!
-    autocmd User plugin-lingr-message
-        \   let s:temp = lingr#get_last_message()
-        \|  if !empty(s:temp)
-            \|      call s:growl(s:temp.nickname, s:temp.text)
-            \|  endif
-            \|  unlet s:temp
-
-    autocmd User plugin-lingr-presence
-        \   let s:temp = lingr#get_last_member()
-        \|  if !empty(s:temp)
-            \|      call s:growl(s:temp.name,
-            \|	    (s:temp.presence ? 'online' : 'offline'))
-            \|  endif
-            \|  unlet s:temp
-augroup END
 
 " poslist.vim
 map <c-o> <Plug>(poslist-prev-pos)
