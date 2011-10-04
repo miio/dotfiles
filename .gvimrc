@@ -47,16 +47,5 @@ if has('gui_macvim')
     " カーソル位置
     highlight CursorLine guibg=#073672
     highlight CursorColumn guibg=#073672
-
-    " 透明度
-    " let &transparency=0
-    " nnoremap <up> :<C-u>call <SID>relative_tranparency(5)<Cr>
-    " inoremap <up> <C-o>:call <SID>relative_tranparency(5)<Cr>
-    " nnoremap <down> :<C-u>call <SID>relative_tranparency(-5)<Cr>
-    " inoremap <down> <C-o>:call <SID>relative_tranparency(-5)<Cr>
-    " function! s:relative_tranparency(diff)
-    " let &transparency = a:diff + &transparency
-    " let g:transparency = &transparency
-    " endfunction
 else
 endif
