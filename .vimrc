@@ -602,6 +602,10 @@ nmap <Leader>o <Plug>(openbrowser-smart-search)
 vmap <Leader>o <Plug>(openbrowser-smart-search)
 command! -nargs=1 Google :OpenBrowserSearch <args>
 
+" フォントサイズ変更
+noremap <UP> :<C-u>ZoomIn<CR>
+noremap <DOWN> <C-u>:ZoomOut<CR>
+
 "---------------------------------------------------------
 " 未整理
 "---------------------------------------------------------
