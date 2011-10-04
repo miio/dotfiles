@@ -131,6 +131,9 @@ Bundle 'phrase.vim'
 " zoom
 Bundle 'taku-o/vim-zoom'
 
+" zoomwin
+Bundle 'ZoomWin'
+
 " 移動を細かく記録する
 Bundle 'thinca/vim-poslist'
 
