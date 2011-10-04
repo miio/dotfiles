@@ -128,6 +128,9 @@ Bundle 'mattn/calendar-vim'
 " Phrase
 Bundle 'phrase.vim'
 
+" zoom
+Bundle 'taku-o/vim-zoom'
+
 " 移動を細かく記録する
 Bundle 'thinca/vim-poslist'
 
