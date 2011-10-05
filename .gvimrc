@@ -46,6 +46,16 @@ if has('gui_macvim')
 
     " カーソル位置
     highlight CursorLine guibg=#073672
+
+    " vimにフォーカスがあたっていないときは、透けさせる。(http://vim-users.jp/2011/10/hack234/)
+    set transparency=10
+    augroup hack234
+        autocmd!
+        if has('mac')
+            autocmd FocusGained * set transparency=10
+            autocmd FocusLost * set transparency=40
+        endif
+    augroup END
     highlight CursorColumn guibg=#073672
 else
 endif
