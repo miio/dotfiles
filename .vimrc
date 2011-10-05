@@ -206,9 +206,6 @@ nnoremap <ESC><ESC> :<C-u>nohlsearch<CR>
 nmap VV ggVG
 nmap vv ^v$
 
-" コマンドラインで貼りつけ
-cnoremap <C-y> <C-r>"
-
 " 分割画面移動
 nnoremap <silent> <space>wj <C-w>j
 nnoremap <silent> <space>wk <C-w>k
