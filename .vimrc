@@ -463,34 +463,34 @@ let g:unite_source_file_mru_limit = 10000
 " let g:unite_winwidth=50
 
 " ファイル一覧
-noremap <Leader>uf :Unite file_rec/async file -buffer-name=file<CR>
+noremap <Leader>uf :<C-u>Unite file_rec/async file -buffer-name=file<CR>
 " バッファ一覧(bookmarkと被るので、とりあえずヒストリのhで妥協)
-noremap <Leader>uh :Unite buffer -buffer-name=file<CR>
+noremap <Leader>uh :<C-u>Unite buffer -buffer-name=file<CR>
 " お気に入り
-noremap <Leader>ub :Unite bookmark -default-action=cd<CR>
+noremap <Leader>ub :<C-u>Unite bookmark -default-action=cd<CR>
 " 最近使ったファイルの一覧
-noremap <Leader>um :Unite file_mru -buffer-name=file<CR>
+noremap <Leader>um :<C-u>Unite file_mru -buffer-name=file<CR>
 " grep
-noremap <Leader>ug :Unite grep -buffer-name=file -no-quit<CR>/*.
+noremap <Leader>ug :<C-u>Unite grep -no-quit<CR>/*.
 " grep
-au FileType php noremap <Leader>ug :Unite -buffer-name=file grep -no-quit<CR>/*.php<CR>
+au FileType php noremap <Leader>ug :<C-u>Unite grep -no-quit<CR>/*.php<CR>
 " ref
-au FileType php noremap <Leader>ur :Unite ref/phpmanual<CR>
-au FileType vim noremap <Leader>ur :Unite help<CR>
+au FileType php noremap <Leader>ur :<C-u>Unite ref/phpmanual<CR>
+au FileType vim noremap <Leader>ur :<C-u>Unite help<CR>
 " outline
-noremap <Leader>uo :Unite outline -no-quit -vertical -winwidth=30 -buffer-name=side<CR>
+noremap <Leader>uo :<C-u>Unite outline -no-quit -vertical -winwidth=30 -buffer-name=side<CR>
 " tags
-noremap <Leader>ut :Unite tag -no-quit -vertical -winwidth=30 -buffer-name=side<CR>
+noremap <Leader>ut :<C-u>Unite tag -no-quit -vertical -winwidth=30 -buffer-name=side<CR>
 " command
-noremap <Leader>uc :Unite history/command<CR>
+noremap <Leader>uc :<C-u>Unite history/command<CR>
 " line
-noremap <Leader>ul :Unite line -no-quit -vertical -winwidth=30 -buffer-name=side<CR>
+noremap <Leader>ul :<C-u>Unite line -no-quit -vertical -winwidth=30 -buffer-name=side<CR>
 " register
-noremap <Leader>uy :Unite register<CR>
+noremap <Leader>uy :<C-u>Unite register<CR>
 " source(sourceが増えてきたので、sourceのsourceを経由する方針にしてみる)
-noremap <Leader>uu :Unite source<CR>
+noremap <Leader>uu :<C-u>Unite source<CR>
 " snippet
-noremap <Leader>us :Unite snippet<CR>
+noremap <Leader>us :<C-u>Unite snippet<CR>
 " svn
 " noremap <Leader>uss :Unite svn/status<CR>
 " noremap <Leader>usd :Unite svn/diff<CR>
