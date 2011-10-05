@@ -146,6 +146,9 @@ Bundle 'houtsnip/vim-emacscommandline'
 " 変数名を規則に従って変換
 Bundle 'tpope/vim-abolish'
 
+" 変数名の規則に従って移動
+Bundle 'ujihisa/camelcasemotion'
+
 " Game
 Bundle 'mattn/invader-vim'
 Bundle 'mfumi/snake.vim'
