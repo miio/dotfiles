@@ -14,10 +14,10 @@ if has('gui_macvim')
     set imdisable        " IME OFF
     set antialias        " アンチエイリアス
 
-    set gfn=Ricty\ Bold:h12
+    set gfn=Ricty\ Bold:h11
     set gfw=
 
-    set lines=79 columns=317
+    set lines=94 columns=317
     set guioptions-=T
     set guioptions-=m
 
