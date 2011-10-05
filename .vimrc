@@ -21,15 +21,15 @@ syntax on
 filetype plugin indent on
 
 " Ev/Rvでvimrcの編集と反映
-command! Ev edit ~/.vimrc
-command! Rv source ~/.vimrc
+command! Ev edit ~/dotfiles/.vimrc
+command! Rv source ~/dotfiles/.vimrc
 
 " Eg/Rgでgvimrcの編集と反映
-command! Eg edit ~/.gvimrc
-command! Rg source ~/.gvimrc
+command! Eg edit ~/dotfiles/.gvimrc
+command! Rg source ~/dotfiles/.gvimrc
 
 " BundleEditでVundleの設定ファイルを開く
-command! BundleEdit edit ~/.vim/bundles.vim
+command! BundleEdit edit ~/dotfiles/.vim/bundles.vim
 
 "変更されたときに自動読み込み
 set autoread
