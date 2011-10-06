@@ -429,7 +429,9 @@ let g:vimshell_enable_auto_slash = 1		" ディレクトリ補完時にスラッ�
 let g:vimshell_vcs_print_null = 1			" vcs情報を表示
 let g:vimshell_max_command_history = 100000000			" ヒストリの保存数
 " noremap <Leader>s :<C-u>split<CR>:<C-u>VimShell<CR>
-noremap <Leader>s :<C-u>VimShellTab<CR>
+noremap <Leader>ss :<C-u>VimShellTab<CR>
+noremap <Leader>sj :<C-u>new<CR>:<C-u>VimShellCreate<CR>
+noremap <Leader>sk :<C-u>vnew<CR>:<C-u>VimShellCreate<CR>
 noremap <Leader>f :<C-u>VimFilerTab<CR>
 
 " surround.vim
