@@ -724,6 +724,8 @@ set list
 set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 
 if has("gui_running")
+    " gvimrcも読み込む
+    source ~/dotfiles/.gvimrc
 else
     " CUI版Vim用のコード
     set background=dark
