@@ -310,7 +310,7 @@ noremap <F3> :GundoToggle<CR>
 
 if has('vim_starting')
     let g:eskk#large_dictionary = '~/.vim/skk/skk-jisyo.l'
-    let g:eskk#show_candidates_count = 2
+    let g:eskk#show_candidates_count = 3
 endif
 
 " TODO: eskkとskkを両立できるようにする
