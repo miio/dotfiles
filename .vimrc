@@ -182,8 +182,6 @@ set hlsearch
 
 " *でビジュアルモードで選んでる文字を検索
 vnoremap * "zy:let @/ = @z<CR>n
-" Ctrl-iでヘルプ
-" nnoremap <C-i> :<C-u>help<Space><C-r><C-w><Enter>
 
 "---------------------------------------------------------
 " マッピング
@@ -220,12 +218,6 @@ nnoremap <silent> <space>wo :<C-u>ZoomWin<CR>
 nnoremap <Leader>n gt
 nnoremap <Leader>p gT
 
-" インサートモードでもhjklで移動（Ctrl押すけどね）
-" imap <C-j> <Down>
-" imap <C-k> <Up>
-" imap <C-h> <Left>
-" imap <C-l> <Right>
-
 " 行数表示変更
 function! s:toggle_nu()
     if !&number && !&relativenumber
@@ -260,10 +252,6 @@ cnoremap <Down> <C-n>
 " 対応する括弧に移動
 nnoremap [ %
 nnoremap ] %
-
-" スクロール
-" noremap <Space>j 10j
-" noremap <Space>k 10k
 
 " シフト移動
 noremap J 30j
@@ -378,12 +366,6 @@ Arpeggio vnoremap jk <Esc>
 " inoremap <buffer><expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
 " inoremap <buffer><expr> , smartchr#one_of(', ', ',')
 
-" other
-" inoremap ( ()<Left>
-" inoremap < <><Left>
-" inoremap ' ''<Left>
-" inoremap " ""<Left>
-
 " Alignta(仮設定)
 vnoremap <Leader>a :Alignta 
 
@@ -410,10 +392,7 @@ omap <Leader>w  <Plug>(smartword-w)
 omap <Leader>b  <Plug>(smartword-b)
 omap <Leader>ge  <Plug>(smartword-ge)
 
-" visualmark設定
-" map <silent> <Leader>vs <Plug>Vm_toggle_sign
-" map <silent> <Leader>vj <Plug>Vm_goto_next_sign
-" map <silent> <Leader>vk <Plug>Vm_goto_prev_sign
+" markscorey.vim設定
 map <silent> <Leader>vs <Plug>Place_sign
 map <silent> <Leader>vv <Plug>Place_sign
 map <silent> <Leader>vr <Plug>Remove_all_signs
@@ -421,7 +400,6 @@ map <silent> <Leader>vj <Plug>Goto_next_sign
 map <silent> <Leader>vn <Plug>Goto_next_sign
 map <silent> <Leader>vk <Plug>Goto_prev_sign
 map <silent> <Leader>vp <Plug>Goto_prev_sign
-
 
 " easymotion
 let g:EasyMotion_leader_key='<Leader>m'
@@ -432,7 +410,6 @@ imap <C-a> <C-o><Plug>CapsLockToggle
 " vimshell設定
 
 let g:vimshell_enable_auto_slash = 1		" ディレクトリ補完時にスラッシュを補う
-let g:vimshell_vcs_print_null = 1			" vcs情報を表示
 let g:vimshell_max_command_history = 100000000			" ヒストリの保存数
 noremap <Leader>s :<C-u>VimShellTab<CR>
 noremap <Leader>ss :<C-u>VimShellTab<CR>
@@ -464,11 +441,7 @@ imap <C-k> <C-g>s
 " unite
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
-" let g:unite_source_file_rec_ignore_pattern= '/templates_c'
 let g:unite_source_file_mru_limit = 10000
-" let g:unite_source_file_rec_ignore_pattern= '\%(^\|/\)\.$\|\~$\|\.\%(o|exe|dll|bak|sw[po]\)$\|\%(^\|/\)\.\%(hg\|git\|bzr\|svn\)\%($\|/\)'
-" let g:unite_enable_split_vertically=1
-" let g:unite_winwidth=50
 
 " ファイル一覧
 noremap <Leader>uf :<C-u>Unite file_rec/async file -buffer-name=file<CR>
@@ -499,9 +472,6 @@ noremap <Leader>uy :<C-u>Unite register<CR>
 noremap <Leader>uu :<C-u>Unite source<CR>
 " snippet
 noremap <Leader>us :<C-u>Unite snippet<CR>
-" svn
-" noremap <Leader>uss :Unite svn/status<CR>
-" noremap <Leader>usd :Unite svn/diff<CR>
 
 " カラースキーム用コマンド
 command! UniteColorScheme :Unite colorscheme -auto-preview
@@ -582,13 +552,6 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" Enable heavy omni completion.
-" if !exists('g:neocomplcache_omni_patterns')
-" let g:neocomplcache_omni_patterns = {}
-" endif
-" let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-" autocmd FileType php setlocal omnifunc=phpcomplete#Complete
-
 " vimproc
 let g:vimproc_dll_path = $HOME . '/.vim/autoload/proc.so'
 
@@ -618,16 +581,6 @@ noremap <DOWN> <C-u>:ZoomOut<CR>
 " 未整理
 "---------------------------------------------------------
 
-" 覚えていない
-" augroup Binary
-" autocmd!
-" autocmd BufReadPre  *.bin let &bin=1
-" autocmd BufReadPost * if &bin | silent %!xxd -g 1
-" autocmd BufReadPost * set filetype=xxd | endif
-" autocmd BufWritePre * if &bin | %!xxd -r
-" autocmd BufWritePost * if &bin | silent %!xxd -g 1
-" autocmd BufWritePost * set nomod | endif
-
 " メモを作成する
 command! -nargs=0 MemoWrite call s:open_memo_file()
 function! s:open_memo_file()
@@ -652,9 +605,6 @@ set pastetoggle=<F2>
 
 " ヤンクしたものをクリップボードにも
 set clipboard=unnamed
-
-" autocmd BufWritePre * :%s/\s\+$//ge
-
 
 " 折り畳み関連
 set foldmethod=manual
@@ -688,12 +638,6 @@ au BufNewFile,BufRead *.html set filetype=smarty.html
 autocmd FileType php :set dictionary+=~/.vim/dict/php.dict
 autocmd FileType scala :set dictionary+=~/.vim/dict/scala.dict
 set complete+=k
-
-
-" コマンド実行中は再描画しない
-" set lazyredraw
-" 高速ターミナル接続を行う
-" set ttyfast
 
 " バッファの戻る・進む
 noremap <Space>n :bn<CR>
