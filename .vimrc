@@ -311,6 +311,12 @@ nnoremap <silent> <space>si :<C-u>cscope find i <C-r><C-w><CR>
 " プラグイン設定
 "---------------------------------------------------------
 
+" mondayプラグインの設定例
+let g:monday_patterns = [
+            \["abc", "cde", "edf"],
+            \["koreha", "hidoi", "desune"]
+            \]
+
 " F5でGundoを開く
 noremap <F3> :GundoToggle<CR>
 
