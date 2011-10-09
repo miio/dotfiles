@@ -525,6 +525,7 @@ function! s:unite_my_settings()
     imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
     nmap <buffer> <space><space> <Plug>(unite_toggle_mark_current_candidate)
     nnoremap <buffer> p p
+    nnoremap <buffer> <Space> <Space>
 endfunction
 
 " NERD Commnterの設定
