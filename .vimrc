@@ -215,6 +215,8 @@ nnoremap <silent> <space>wr <C-w>r
 nnoremap <silent> <space>w= <C-w>=
 nnoremap <silent> <space>ww <C-w>w
 nnoremap <silent> <space>wo :<C-u>ZoomWin<CR>
+nnoremap <silent> <space>wn gt
+nnoremap <silent> <space>wp gT
 
 " タブ移動
 nnoremap <Leader>n gt
