@@ -217,6 +217,9 @@ nnoremap <silent> <space>ww <C-w>w
 nnoremap <silent> <space>wo :<C-u>ZoomWin<CR>
 nnoremap <silent> <space>wn gt
 nnoremap <silent> <space>wp gT
+nnoremap <silent> <space>wt :<C-u>tabnew<CR>
+nnoremap <silent> <space>ws :<C-u>sp<CR>
+nnoremap <silent> <space>wv :<C-u>vs<CR>
 
 " タブ移動
 nnoremap <Leader>n gt
