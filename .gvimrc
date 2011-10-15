@@ -45,7 +45,8 @@ if has('gui_macvim')
     endif
 
     " カーソル位置
-    highlight CursorLine guibg=#073672
+    highlight CursorLine guibg=#0736c2
+    highlight CursorColumn guibg=#0736c2
 
     " vimにフォーカスがあたっていないときは、透けさせる。(http://vim-users.jp/2011/10/hack234/)
     set transparency=10
