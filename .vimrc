@@ -526,8 +526,8 @@ inoremap <expr><C-x><C-o> &filetype == 'vim' ? "\<C-x><C-v><C-p>" : neocomplcach
 " <C-h>のときにポップアップを消す
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."<C-h>"
 
-" <C-y>で補完を確定
-inoremap <expr><C-y> neocomplcache#close_popup()
+" <C-f>で補完を確定
+inoremap <expr><C-f> neocomplcache#close_popup()
 
 " <C-e>で補完をキャンセル
 inoremap <expr><C-e> neocomplcache#cancel_popup()
