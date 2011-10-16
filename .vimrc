@@ -459,10 +459,10 @@ noremap <Leader>um :<C-u>Unite file_mru -buffer-name=file<CR>
 " grep
 noremap <Leader>ug :<C-u>Unite grep -no-quit<CR>/*.
 " grep
-au FileType php noremap <Leader>ug :<C-u>Unite grep -no-quit<CR>/*.php<CR>
+au FileType php noremap <buffer> <Leader>ug :<C-u>Unite grep -no-quit<CR>/*.php<CR>
 " ref
-au FileType php noremap <Leader>ur :<C-u>Unite ref/phpmanual<CR>
-au FileType vim noremap <Leader>ur :<C-u>Unite help<CR>
+au FileType php noremap <buffer> <Leader>ur :<C-u>Unite ref/phpmanual<CR>
+au FileType vim noremap <buffer> <Leader>ur :<C-u>Unite help<CR>
 " outline
 noremap <Leader>uo :<C-u>Unite outline -no-quit -vertical -winwidth=30 -buffer-name=side<CR>
 " tags
