@@ -416,8 +416,8 @@ imap <C-a> <C-o><Plug>CapsLockToggle
 
 let g:vimshell_enable_auto_slash = 1		" ディレクトリ補完時にスラッシュを補う
 let g:vimshell_max_command_history = 100000000			" ヒストリの保存数
-noremap <Leader>s :<C-u>VimShellTab<CR>
-noremap <Leader>ss :<C-u>VimShellTab<CR>
+noremap <Leader>ss :<C-u>VimShellCreate<CR>
+noremap <Leader>st :<C-u>VimShellTab<CR>
 noremap <Leader>sj :<C-u>new<CR>:<C-u>VimShellCreate<CR>
 noremap <Leader>sk :<C-u>vnew<CR>:<C-u>VimShellCreate<CR>
 noremap <Leader>f :<C-u>VimFilerTab<CR>
@@ -620,7 +620,7 @@ function! PHPLint()
     echo result
 endfunction
 " autocmd BufWritePost *.php call PHPLint()
-noremap <Leader>l :<C-u>call PHPLint()<CR>
+au FileType php nnoremap <buffer> <Space>>l :<C-u>call PHPLint()<CR>
 
 " マッピングチェック
 command!
