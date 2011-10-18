@@ -397,14 +397,11 @@ omap <Leader>w  <Plug>(smartword-w)
 omap <Leader>b  <Plug>(smartword-b)
 omap <Leader>ge  <Plug>(smartword-ge)
 
-" markscorey.vim設定
-map <silent> <Leader>vs <Plug>Place_sign
-map <silent> <Leader>vv <Plug>Place_sign
-map <silent> <Leader>vr <Plug>Remove_all_signs
-map <silent> <Leader>vj <Plug>Goto_next_sign
-map <silent> <Leader>vn <Plug>Goto_next_sign
-map <silent> <Leader>vk <Plug>Goto_prev_sign
-map <silent> <Leader>vp <Plug>Goto_prev_sign
+" visualmark設定
+map <silent> <Leader>vs <Plug>Vm_toggle_sign
+map <silent> <Leader>vv <Plug>Vm_toggle_sign
+map <silent> <Leader>vj <Plug>Vm_goto_next_sign
+map <silent> <Leader>vk <Plug>Vm_goto_prev_sign
 
 " easymotion
 let g:EasyMotion_leader_key='<Leader>m'
