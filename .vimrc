@@ -270,13 +270,9 @@ noremap <Space>v :vs<CR>
 
 " キーボードマクロをQに降格
 nnoremap Q q
-" nnoremap q Q
 
 " ノーマルモード時にエンター2回で改行
 nnoremap <CR><CR> :<C-u>call append(expand('.'), '')<Cr>j
-
-" ビジュアルモード時の$で改行文字を含まない
-vnoremap $ $h
 
 " tagまわり
 set tags=tags
@@ -304,13 +300,14 @@ nnoremap <silent> <space>si :<C-u>cscope find i <C-r><C-w><CR>
 " プラグイン設定
 "---------------------------------------------------------
 
+" TODO:大文字対応
 " mondayプラグインの設定例
 let g:monday_patterns = [
-            \["abc", "cde", "edf"],
-            \["koreha", "hidoi", "desune"]
+            \["ASC", "DESC"],
+            \["asc", "desc"],
             \]
 
-" F5でGundoを開く
+" F3でGundoを開く
 noremap <F3> :GundoToggle<CR>
 
 if has('vim_starting')
@@ -378,9 +375,6 @@ vnoremap <Leader>a :Alignta
 cnoremap <expr> <Space> ambicmd#expand("\<Space>")
 cnoremap <expr> <CR>    ambicmd#expand("\<CR>")
 
-" あのファイル
-nmap <F4> <Plug>(altr-forward) call altr#define('*/tpl/*/%.html', '*/public_html/*/%.php')
-
 " vim-ref
 nmap <Leader>k <Plug>(ref-keyword)
 let objc_man_key = '<Leader>k'
@@ -420,8 +414,6 @@ noremap <Leader>sk :<C-u>vnew<CR>:<C-u>VimShellCreate<CR>
 noremap <Leader>f :<C-u>VimFilerTab<CR>
 
 " surround.vim
-let g:surround_{char2nr('S')}= "{{\r}}"
-
 let g:surround_custom_mapping = {}
 let g:surround_custom_mapping._ = {
             \'[': "[\r]",
@@ -434,7 +426,8 @@ let g:surround_custom_mapping.php= {
             \'v': "v(\r);"
             \}
 let g:surround_custom_mapping.smarty= {
-            \'s': "{{\1name: \r..*\r&\1}}\r{{/\1\1}}", 
+            \'S': "{{\r}}",
+            \'s': "{{\1name: \r..*\r&\1}}\r{{/\1\1}}",
             \'{': "{{\r}}"
             \}
 
@@ -610,7 +603,7 @@ set clipboard=unnamed
 set foldmethod=manual
 
 " ファイルタイプのショートカットコマンド
-command! -nargs=1 Type :set filetype=<args>
+command! -nargs=1 Type :<C-u>set filetype=<args>
 
 function! PHPLint()
     let result = system( &ft . ' -l ' . bufname(""))

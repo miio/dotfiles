@@ -1,13 +1,11 @@
 if has('gui_macvim')
-    " 全画面表示
-    " set fuoptions=maxvert,maxhorz
-    " au GUIEnter * set fullscreen
-
     " カラースキーム
     set background=dark
     let g:solarized_contrast="high"
     let g:solarized_italic=0
+    let g:solarized_menu=0
     let g:solarized_visibility="normal"
+    let g:solarized_termcolors=256
     colorscheme solarized
 
     set showtabline=2    " タブを常に表示
