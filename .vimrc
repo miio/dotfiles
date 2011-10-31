@@ -610,7 +610,7 @@ function! PHPLint()
     echo result
 endfunction
 " autocmd BufWritePost *.php call PHPLint()
-au FileType php nnoremap <buffer> <Space>>l :<C-u>call PHPLint()<CR>
+au FileType php nnoremap <buffer> <Space>l :<C-u>call PHPLint()<CR>
 
 " マッピングチェック
 command!
