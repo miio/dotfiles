@@ -469,6 +469,7 @@ noremap <Leader>ut :<C-u>Unite tag -no-quit -vertical -winwidth=30 -buffer-name=
 noremap <Leader>uc :<C-u>Unite history/command<CR>
 " line
 noremap <Leader>ul :<C-u>Unite line<CR>
+nnoremap <silent> /  :<C-u>Unite -buffer-name=search line -start-insert -no-quit<CR>
 " register
 noremap <Leader>uy :<C-u>Unite history/yank<CR>
 " source(sourceが増えてきたので、sourceのsourceを経由する方針にしてみる)
