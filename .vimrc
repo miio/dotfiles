@@ -29,7 +29,12 @@ command! Eg edit ~/dotfiles/.gvimrc
 command! Rg source ~/dotfiles/.gvimrc
 
 " BundleEditでVundleの設定ファイルを開く
-command! BundleEdit edit ~/dotfiles/.vim/bundles.vim
+command! Eb edit ~/dotfiles/.vim/bundles.vim
+command! Rb NeoBundleInstall
+
+" 一時ファイル
+command! Tmp edit ~/Dropbox/tmp.txt
+command! Temp edit ~/Dropbox/tmp.txt
 
 "変更されたときに自動読み込み
 set autoread
