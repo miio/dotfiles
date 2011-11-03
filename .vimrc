@@ -468,7 +468,7 @@ noremap <Leader>ut :<C-u>Unite tag -no-quit -vertical -winwidth=30 -buffer-name=
 " command
 noremap <Leader>uc :<C-u>Unite history/command<CR>
 " line
-noremap <Leader>ul :<C-u>Unite line -no-quit -vertical -winwidth=30 -buffer-name=side<CR>
+noremap <Leader>ul :<C-u>Unite line<CR>
 " register
 noremap <Leader>uy :<C-u>Unite history/yank<CR>
 " source(sourceが増えてきたので、sourceのsourceを経由する方針にしてみる)
@@ -619,6 +619,9 @@ function! PHPLint()
 endfunction
 " autocmd BufWritePost *.php call PHPLint()
 au FileType php nnoremap <buffer> <Space>l :<C-u>call PHPLint()<CR>
+
+" iskeyword変更
+au FileType php setlocal iskeyword+=$
 
 " マッピングチェック
 command!
