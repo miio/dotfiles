@@ -202,7 +202,7 @@ nnoremap <ESC><ESC> :<C-u>nohlsearch<CR>
 
 " vvで全選択
 nmap VV ggVG
-nmap vv ^v$
+nmap vv ^v$h
 
 " 分割画面移動
 nnoremap <silent> <space>wj <C-w>j
@@ -437,6 +437,9 @@ imap <C-k> <C-g>s
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
 let g:unite_source_file_mru_limit = 10000
+let g:unite_source_history_yank_enable = 1
+let g:unite_source_history_yank_limit = 1000
+let g:unite_source_grep_max_candidates = 1000
 
 " ファイル一覧
 noremap <Leader>uf :<C-u>Unite file_rec/async file -buffer-name=file<CR>
@@ -462,7 +465,7 @@ noremap <Leader>uc :<C-u>Unite history/command<CR>
 " line
 noremap <Leader>ul :<C-u>Unite line -no-quit -vertical -winwidth=30 -buffer-name=side<CR>
 " register
-noremap <Leader>uy :<C-u>Unite register<CR>
+noremap <Leader>uy :<C-u>Unite history/yank<CR>
 " source(sourceが増えてきたので、sourceのsourceを経由する方針にしてみる)
 noremap <Leader>uu :<C-u>Unite source<CR>
 " snippet
@@ -603,7 +606,7 @@ set clipboard=unnamed
 set foldmethod=manual
 
 " ファイルタイプのショートカットコマンド
-command! -nargs=1 Type :<C-u>set filetype=<args>
+command! -nargs=1 Type :set filetype=<args>
 
 function! PHPLint()
     let result = system( &ft . ' -l ' . bufname(""))
