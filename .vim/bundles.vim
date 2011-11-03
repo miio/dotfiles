@@ -1,161 +1,166 @@
+set nocompatible
 filetype off
 
-set rtp+=~/.vim/vundle.git/
-call vundle#rc()
+if has('vim_starting')
+  set runtimepath+=~/.vim/neobundle.git/
+
+  call neobundle#rc(expand('~/.bundle'))
+endif
 
 " color-scheme
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'mrkn256.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'git://github.com/vim-scripts/mrkn256.vim.git'
 
 " 擬似capslock
-Bundle 'capslock.vim'
+NeoBundle 'git://github.com/vim-scripts/capslock.vim.git'
 
 " lingr
-Bundle 'tsukkee/lingr-vim'
+NeoBundle 'tsukkee/lingr-vim'
 
 " 究極補完
-Bundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplcache'
 
 " コメントorコメントアウト
-Bundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/nerdcommenter'
 
 " easymotion
-Bundle 'Lokaltog/vim-easymotion'
+NeoBundle 'Lokaltog/vim-easymotion'
 
 " ブラウザで開く
-Bundle 'tyru/open-browser.vim'
+NeoBundle 'tyru/open-browser.vim'
 
 " ambicmd
-Bundle 'thinca/vim-ambicmd'
+NeoBundle 'thinca/vim-ambicmd'
 
 " coffeescriptなどに使う
-Bundle 'ujihisa/shadow.vim'
+NeoBundle 'ujihisa/shadow.vim'
 
 " unite関連
-Bundle 'Shougo/unite.vim'
-Bundle 'h1mesuke/unite-outline'
-Bundle 'tsukkee/unite-help'
-Bundle 'thinca/vim-unite-history'
-Bundle 'ujihisa/unite-colorscheme'
-Bundle 'tsukkee/unite-tag'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'tsukkee/unite-help'
+NeoBundle 'thinca/vim-unite-history'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'tsukkee/unite-tag'
 
 " 整形
-Bundle 'h1mesuke/vim-alignta'
+NeoBundle 'h1mesuke/vim-alignta'
 
 " インデントの可視化
-Bundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " 言語別
-Bundle 'kchmck/vim-coffee-script'
+NeoBundle 'kchmck/vim-coffee-script'
 
 " 即座に実行
-Bundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-quickrun'
 
 " リファレンスを開く
-Bundle 'thinca/vim-ref'
-Bundle 'mojako/ref-alc.vim'
-Bundle 'soh335/vim-ref-pman'
-Bundle 'mojako/ref-sources.vim'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'mojako/ref-alc.vim'
+NeoBundle 'soh335/vim-ref-pman'
+NeoBundle 'mojako/ref-sources.vim'
 
 " cocoa
-Bundle 'msanders/cocoa.vim'
+NeoBundle 'msanders/cocoa.vim'
 
 " 外側テキストオブジェクト
-Bundle 'tpope/vim-surround'
-Bundle 't9md/vim-surround_custom_mapping'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 't9md/vim-surround_custom_mapping'
 
 " テキスト移動
-Bundle 't9md/vim-textmanip'
+NeoBundle 't9md/vim-textmanip'
 
 " wやeを賢く
-Bundle 'kana/vim-smartword'
+NeoBundle 'kana/vim-smartword'
 
 " 複数ハイライト
-Bundle 't9md/vim-quickhl'
+NeoBundle 't9md/vim-quickhl'
 
 " ファイラ
-Bundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimfiler'
 
 " shell
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
-Bundle 'ujihisa/vimshell-ssh'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'ujihisa/vimshell-ssh'
 
 " echodoc
-Bundle 'Shougo/echodoc'
+NeoBundle 'Shougo/echodoc'
 
 " 移動
-Bundle 'Visual-Mark'
+NeoBundle 'git://github.com/vim-scripts/Visual-Mark.git'
 
 " html高速入力
-Bundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/zencoding-vim'
 
 " 文字入力を賢く
-Bundle 'kana/vim-smartchr'
+NeoBundle 'kana/vim-smartchr'
 
 " 同時押しマッピング
-Bundle 'kana/vim-arpeggio'
+NeoBundle 'kana/vim-arpeggio'
 
 " vim再起動
-Bundle 'tyru/restart.vim'
+NeoBundle 'tyru/restart.vim'
 
 " あのファイルを開く
-Bundle 'kana/vim-altr'
+NeoBundle 'kana/vim-altr'
 
 " git
-Bundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'
 
 " scouter
-Bundle 'thinca/vim-scouter.git'
+NeoBundle 'thinca/vim-scouter.git'
 
 " localvimrc
-Bundle 'thinca/vim-localrc'
+NeoBundle 'thinca/vim-localrc'
 
 " eskk.vim
-Bundle 'tyru/eskk.vim'
-Bundle 'tyru/savemap.vim'
-Bundle 'tyru/vice.vim'
+NeoBundle 'tyru/eskk.vim'
+NeoBundle 'tyru/savemap.vim'
+NeoBundle 'tyru/vice.vim'
 
 " skk.vim
-" Bundle 'tyru/skk.vim'
+" NeoBundle 'tyru/skk.vim'
 
 " matrix
-Bundle 'matrix.vim--Yang'
+NeoBundle 'git://github.com/vim-scripts/matrix.vim--Yang.git'
 
 " gundo
-Bundle 'sjl/gundo.vim'
+NeoBundle 'sjl/gundo.vim'
 
 " calendar
-Bundle 'mattn/calendar-vim'
+NeoBundle 'mattn/calendar-vim'
 
 " Phrase
-Bundle 'phrase.vim'
+NeoBundle 'git://github.com/vim-scripts/phrase.vim.git'
 
 " zoom
-Bundle 'taku-o/vim-zoom'
+NeoBundle 'taku-o/vim-zoom'
 
 " zoomwin
-Bundle 'ZoomWin'
+NeoBundle 'git://github.com/vim-scripts/ZoomWin.git'
 
 " 移動を細かく記録する
-Bundle 'thinca/vim-poslist'
+NeoBundle 'thinca/vim-poslist'
 
 " <c-a><c-x>で変更できるものを増やす
-Bundle 'tekkoc/monday'
+NeoBundle 'tekkoc/monday'
 
 " コマンドラインでemacsライクな移動ができるように
-Bundle 'houtsnip/vim-emacscommandline'
+NeoBundle 'houtsnip/vim-emacscommandline'
 
 " 変数名を規則に従って変換
-Bundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-abolish'
 
 " 変数名の規則に従って移動
-Bundle 'ujihisa/camelcasemotion'
+NeoBundle 'ujihisa/camelcasemotion'
 
 " Game
-Bundle 'mattn/invader-vim'
-Bundle 'mfumi/snake.vim'
-Bundle 'mfumi/viminesweeper'
-Bundle 'mfumi/lightsout.vim'
+NeoBundle 'mattn/invader-vim'
+NeoBundle 'mfumi/snake.vim'
+NeoBundle 'mfumi/viminesweeper'
+NeoBundle 'mfumi/lightsout.vim'
 
-filetype plugin indent on
+filetype plugin on
+filetype indent on
