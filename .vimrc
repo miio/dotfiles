@@ -377,8 +377,10 @@ Arpeggio vnoremap jk <Esc>
 vnoremap <Leader>a :Alignta 
 
 " コマンド展開
+" if (exists("*ambicmd#expand"))
 cnoremap <expr> <Space> ambicmd#expand("\<Space>")
 cnoremap <expr> <CR>    ambicmd#expand("\<CR>")
+" endif
 
 " vim-ref
 nmap <Leader>k <Plug>(ref-keyword)
@@ -428,7 +430,8 @@ let g:surround_custom_mapping.php= {
             \'{': "{\r}",
             \'f': "\1name: \r..*\r&\1(\r)",
             \'a': "['\r']",
-            \'v': "v(\r);"
+            \'v': "v(\r);",
+            \'s': "self::\r"
             \}
 let g:surround_custom_mapping.smarty= {
             \'S': "{{\r}}",
@@ -457,7 +460,7 @@ noremap <Leader>um :<C-u>Unite file_mru -buffer-name=file<CR>
 " grep
 noremap <Leader>ug :<C-u>Unite grep -no-quit<CR>/*.
 " grep
-au FileType php noremap <buffer> <Leader>ug :<C-u>Unite grep -no-quit<CR>/*.php<CR>
+" au FileType php noremap <buffer> <Leader>ug :<C-u>Unite grep -no-quit<CR>/*.php<CR>
 " ref
 au FileType php noremap <buffer> <Leader>ur :<C-u>Unite ref/phpmanual<CR>
 au FileType vim noremap <buffer> <Leader>ur :<C-u>Unite help<CR>
@@ -468,8 +471,7 @@ noremap <Leader>ut :<C-u>Unite tag -no-quit -vertical -winwidth=30 -buffer-name=
 " command
 noremap <Leader>uc :<C-u>Unite history/command<CR>
 " line
-noremap <Leader>ul :<C-u>Unite line<CR>
-nnoremap <silent> /  :<C-u>Unite -buffer-name=search line -start-insert -no-quit<CR>
+noremap <Leader>/ :<C-u>Unite -buffer-name=search line -start-insert<CR>
 " register
 noremap <Leader>uy :<C-u>Unite history/yank<CR>
 " source(sourceが増えてきたので、sourceのsourceを経由する方針にしてみる)
@@ -578,8 +580,8 @@ vmap <Leader>o <Plug>(openbrowser-smart-search)
 command! -nargs=1 Google :OpenBrowserSearch <args>
 
 " フォントサイズ変更
-noremap <UP> :<C-u>ZoomIn<CR>
-noremap <DOWN> <C-u>:ZoomOut<CR>
+" noremap <UP> :<C-u>ZoomIn<CR>
+" noremap <DOWN> <C-u>:ZoomOut<CR>
 
 "---------------------------------------------------------
 " 未整理
@@ -649,7 +651,7 @@ noremap <Space>n :bn<CR>
 noremap <Space>p :bp<CR>
 
 " バッファを閉じる
-noremap <Space>q :bd<CR>
+" noremap <Space>q :bd<CR>
 
 
 "php処理

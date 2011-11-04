@@ -129,9 +129,6 @@ NeoBundle 'git://github.com/vim-scripts/matrix.vim--Yang.git'
 " gundo
 NeoBundle 'sjl/gundo.vim'
 
-" calendar
-NeoBundle 'mattn/calendar-vim'
-
 " Phrase
 NeoBundle 'git://github.com/vim-scripts/phrase.vim.git'
 
