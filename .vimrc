@@ -28,9 +28,9 @@ command! Rv source ~/dotfiles/.vimrc
 command! Eg edit ~/dotfiles/.gvimrc
 command! Rg source ~/dotfiles/.gvimrc
 
-" BundleEditでVundleの設定ファイルを開く
+" Eb/RbでNeoBundleの編集と反映
 command! Eb edit ~/dotfiles/.vim/bundles.vim
-command! Rb NeoBundleInstall
+command! -bang Rb NeoBundleInstall<bang>
 
 " 一時ファイル
 command! Tmp edit ~/Dropbox/tmp.txt
