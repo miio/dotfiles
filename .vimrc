@@ -30,7 +30,7 @@ command! Rg source ~/dotfiles/.gvimrc
 
 " Eb/RbでNeoBundleの編集と反映
 command! Eb edit ~/dotfiles/.vim/bundles.vim
-command! -bang Rb NeoBundleInstall<bang>
+command! -bang Rb :Unite neobundle/install:<bang>
 
 " 一時ファイル
 command! Tmp edit ~/Dropbox/tmp.txt
