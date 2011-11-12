@@ -153,6 +153,9 @@ NeoBundle 'tpope/vim-abolish'
 " 変数名の規則に従って移動
 NeoBundle 'ujihisa/camelcasemotion'
 
+" Vim script doc
+NeoBundle 'https://github.com/mattn/learn-vimscript.git'
+
 " Game
 NeoBundle 'mattn/invader-vim'
 NeoBundle 'mfumi/snake.vim'

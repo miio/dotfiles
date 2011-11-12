@@ -633,7 +633,6 @@ command!
             \   map <args> | map! <args> | lmap <args>
 
 " テンプレート設定
-autocmd BufNewFile *.php 0r $HOME/.vim/template/php.txt
 autocmd BufNewFile *.pm 0r $HOME/.vim/template/perl.txt
 autocmd BufNewFile *.html 0r $HOME/.vim/template/html.txt
 

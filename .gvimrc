@@ -1,6 +1,7 @@
 if has('gui_macvim')
     " カラースキーム
-    set background=dark
+    " set background=dark
+    set background=light
     let g:solarized_contrast="high"
     let g:solarized_italic=0
     let g:solarized_menu=0
@@ -12,7 +13,7 @@ if has('gui_macvim')
     set imdisable        " IME OFF
     set antialias        " アンチエイリアス
 
-    set gfn=Ricty\ Bold:h11
+    set gfn=Ricty\ Bold:h12
     set gfw=
 
     set lines=94 columns=317
@@ -43,18 +44,22 @@ if has('gui_macvim')
     endif
 
     " カーソル位置
-    highlight CursorLine guibg=#0736c2
-    highlight CursorColumn guibg=#0736c2
+    if &bg == "dark"
+        highlight CursorLine guibg=#0736c2
+        highlight CursorColumn guibg=#0736c2
+    else
+        highlight CursorLine guibg=#ddddff
+        highlight CursorColumn guibg=#ddddff
+    endif
 
     " vimにフォーカスがあたっていないときは、透けさせる。(http://vim-users.jp/2011/10/hack234/)
     set transparency=10
     augroup hack234
         autocmd!
         if has('mac')
-            autocmd FocusGained * set transparency=10
+            autocmd FocusGained * set transparency=0
             autocmd FocusLost * set transparency=40
         endif
     augroup END
-    highlight CursorColumn guibg=#073672
 else
 endif
