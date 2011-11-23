@@ -11,6 +11,10 @@ endif
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'git://github.com/vim-scripts/mrkn256.vim.git'
 
+" lib
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'thinca/vim-openbuf'
+
 " 擬似capslock
 NeoBundle 'git://github.com/vim-scripts/capslock.vim.git'
 
@@ -42,6 +46,7 @@ NeoBundle 'tsukkee/unite-help'
 NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'choplin/unite-vim_hacks'
 
 " 整形
 NeoBundle 'h1mesuke/vim-alignta'
@@ -58,7 +63,6 @@ NeoBundle 'thinca/vim-quickrun'
 " リファレンスを開く
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'mojako/ref-alc.vim'
-NeoBundle 'soh335/vim-ref-pman'
 NeoBundle 'mojako/ref-sources.vim'
 
 " cocoa

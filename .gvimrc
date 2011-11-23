@@ -1,7 +1,7 @@
 if has('gui_macvim')
     " カラースキーム
-    " set background=dark
-    set background=light
+    set background=dark
+    " set background=light
     let g:solarized_contrast="high"
     let g:solarized_italic=0
     let g:solarized_menu=0
@@ -53,7 +53,7 @@ if has('gui_macvim')
     endif
 
     " vimにフォーカスがあたっていないときは、透けさせる。(http://vim-users.jp/2011/10/hack234/)
-    set transparency=10
+    set transparency=0
     augroup hack234
         autocmd!
         if has('mac')

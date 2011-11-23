@@ -209,6 +209,11 @@ nnoremap <ESC><ESC> :<C-u>nohlsearch<CR>
 nmap VV ggVG
 nmap vv ^v$h
 
+nmap <buffer> ( ,mf(
+nmap <buffer> ) ,mF(
+nmap <buffer> { ,mf{
+nmap <buffer> } ,mF{
+
 " 分割画面移動
 nnoremap <silent> <space>wj <C-w>j
 nnoremap <silent> <space>wk <C-w>k
@@ -379,7 +384,7 @@ vnoremap <Leader>a :Alignta
 " コマンド展開
 " if (exists("*ambicmd#expand"))
 cnoremap <expr> <Space> ambicmd#expand("\<Space>")
-cnoremap <expr> <CR>    ambicmd#expand("\<CR>")
+" cnoremap <expr> <CR>    ambicmd#expand("\<CR>")
 " endif
 
 " vim-ref
@@ -450,7 +455,8 @@ let g:unite_source_history_yank_limit = 1000
 let g:unite_source_grep_max_candidates = 1000
 
 " ファイル一覧
-noremap <Leader>uf :<C-u>Unite file_rec/async file -buffer-name=file<CR>
+" noremap <Leader>uf :<C-u>Unite file_rec/unite file async file -buffer-name=file<CR>
+noremap <Leader>uf :<C-u>Unite file_rec/async -buffer-name=file<CR>
 " バッファ一覧(bookmarkと被るので、とりあえずヒストリのhで妥協)
 noremap <Leader>uh :<C-u>Unite buffer -buffer-name=file<CR>
 " お気に入り
@@ -467,11 +473,12 @@ au FileType vim noremap <buffer> <Leader>ur :<C-u>Unite help<CR>
 " outline
 noremap <Leader>uo :<C-u>Unite outline -no-quit -vertical -winwidth=30 -buffer-name=side<CR>
 " tags
-noremap <Leader>ut :<C-u>Unite tag -no-quit -vertical -winwidth=30 -buffer-name=side<CR>
+" noremap <Leader>ut :<C-u>Unite tag -no-quit -vertical -winwidth=30 -buffer-name=side<CR>
+noremap <Leader>ut :<C-u>Unite buffer_tab -buffer-name=file<CR>
 " command
 noremap <Leader>uc :<C-u>Unite history/command<CR>
 " line
-noremap <Leader>/ :<C-u>Unite -buffer-name=search line -start-insert<CR>
+noremap ? :<C-u>Unite -buffer-name=search line -start-insert<CR>
 " register
 noremap <Leader>uy :<C-u>Unite history/yank<CR>
 " source(sourceが増えてきたので、sourceのsourceを経由する方針にしてみる)
@@ -511,7 +518,7 @@ nmap <Leader>c <Plug>NERDCommenterToggle
 vmap <Leader>c <Plug>NERDCommenterToggle
 
 " vimrefのショートカットコマンド
-command! -nargs=1 Alc :Ref alc <args>
+command! -nargs=1 Alc :Ref alc2 <args>
 
 " vimref用のphpmanualのパス
 let g:ref_phpmanual_path = $HOME . '/.vim/phpmanual'
@@ -638,7 +645,8 @@ autocmd BufNewFile *.html 0r $HOME/.vim/template/html.txt
 
 au BufNewFile,BufRead *.scala set filetype=scala
 au BufNewFile,BufRead *.ejs set filetype=html
-au BufNewFile,BufRead *.js set filetype=coffee
+" au BufNewFile,BufRead *.js set filetype=coffee
+au BufNewFile,BufRead *.js set filetype=javascript
 au BufNewFile,BufRead *.html set filetype=smarty.html
 
 autocmd FileType php :set dictionary+=~/.vim/dict/php.dict
