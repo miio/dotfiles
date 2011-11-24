@@ -147,3 +147,8 @@ alias svnup="svn up"
 # app_alias
 # alias vim="/opt/local/bin/vim"
 alias coffee="coffee@1.0.1"
+
+
+#RVM params
+ [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
