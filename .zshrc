@@ -153,7 +153,7 @@ alias coffee="coffee@1.0.1"
  [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 #if MacVim Installed Launch from MacVim
-f [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
+if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
   alias vim='/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab 2>/dev/null >/dev/null'
   export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-wait'
 #  export EDITOR=vim
