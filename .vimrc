@@ -562,8 +562,12 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " vimproc
-let g:vimproc_dll_path = $HOME . '/.vim/autoload/proc.so'
-
+if has('mac')
+	let g:vimproc_dll_path = $HOME . '/.vim/autoload/proc.so'
+elseif has('win32')
+else
+	let g:vimproc_dll_path = $HOME . '/.vim/vimproc/autoload/proc.so'
+endif
 " textmanip
 " 選択したテキストの移動
 vmap <C-j> <Plug>(textmanip-move-down)
