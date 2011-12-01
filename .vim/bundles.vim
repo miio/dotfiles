@@ -4,7 +4,7 @@ filetype off
 if has('vim_starting')
   set runtimepath+=~/.vim/neobundle.git/
 
-  call neobundle#rc(expand('~/.bundle'))
+  call neobundle#rc(expand('~/.vim/.bundle'))
 endif
 
 " color-scheme
@@ -165,6 +165,39 @@ NeoBundle 'mattn/invader-vim'
 NeoBundle 'mfumi/snake.vim'
 NeoBundle 'mfumi/viminesweeper'
 NeoBundle 'mfumi/lightsout.vim'
+
+" Add from itochan315
+NeoBundle 'Align'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'ruby-matchit'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'nono/jquery.vim'
+NeoBundle 'nginx.vim'
+NeoBundle 'basyura/jslint.vim'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'hallison/vim-ruby-sinatra'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'skammer/vim-css-color'
+NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'YankRing.vim'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 't9md/vim-textmanip'
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'tyru/operator-html-escape.vim'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-bundler'
+NeoBundle 'tpope/vim-git'
+NeoBundle 'tpope/vim-rake'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'mattn/gist-vim'
+NeoBundle 'sudo.vim'
+NeoBundle 'The-NERD-Commenter'
 
 filetype plugin on
 filetype indent on
