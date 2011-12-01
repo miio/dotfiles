@@ -379,7 +379,7 @@ vnoremap <Leader>a :Alignta
 
 " コマンド展開
 " if (exists("*ambicmd#expand"))
-cnoremap <expr> <Space> ambicmd#expand("\<Space>")
+" cnoremap <expr> <Space> ambicmd#expand("\<Space>")
 " cnoremap <expr> <CR>    ambicmd#expand("\<CR>")
 " endif
 
