@@ -40,6 +40,14 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
+# rakeコマンドはやけに重たいので補完対象から除外
+compdef -d rake
+
+# autojump settings
+if [[ -f ~/.autojump/etc/profile.d/autojump.zsh ]]; then
+  source ~/.autojump/etc/profile.d/autojump.zsh
+fi
+
 # 自動cd
 setopt auto_cd
 

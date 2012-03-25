@@ -7,3 +7,6 @@
 [submodule ".vim/vimproc"]
 	path = .vim/vimproc
 	url = https://github.com/Shougo/vimproc
+[submodule "autojump"]
+	path = autojump
+	url = git://github.com/joelthelion/autojump.git
