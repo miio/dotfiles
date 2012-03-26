@@ -20,8 +20,8 @@ export ZLS_COLORS=$LS_COLORS
 #esac
 #zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 export ZLS_COLORS=$LS_COLORS
-echo $LSCOLORS
-echo $LS_COLORS
+#echo $LSCOLORS
+#echo $LS_COLORS
 
 # プロンプト
 local GREEN=$'%{\e[1;32m%}'
@@ -29,7 +29,8 @@ local YELLOW=$'%{\e[1;33m%}'
 local BLUE=$'%{\e[1;34m%}'
 local WATER=$'%{\e[1;36m%}'
 local DEFAULT=$'%{\e[1;m%}'
-PROMPT=$'\n'$BLUE'${USER}@${HOSTNAME} '$WATER'%~ '$'\n'$DEFAULT'%(!.#.$) '
+#PROMPT=$'\n'$BLUE'${USER}@${HOSTNAME} '$WATER'%~ '$'\n'$DEFAULT'%(!.#.$) '
+PROMPT=$'\n'$BLUE'${USER}@${HOSTNAME} '"%B%{${BLUE}%}%(5~.%-2~/%{${BLUE}%}(ry%{${BLUE}%}/%2~.%~)%(!.#.$) %{${BLUE}%}%"' '$'\n'$DEFAULT'%(!.#.$) '
 setopt PROMPT_SUBST
 
 # 右プロンプトはvcs関連を表示
@@ -179,7 +180,7 @@ alias svnup="svn up"
 
 # app_alias
 # alias vim="/opt/local/bin/vim"
-alias coffee="coffee@1.0.1"
+#alias coffee="coffee@1.0.1"
 
 
 #RVM params
