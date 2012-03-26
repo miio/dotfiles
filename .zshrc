@@ -1,27 +1,55 @@
 # 言語
 export LANG=ja_JP.UTF-8
 
-# LS時の色を変更（ぎぎねっと先生のところから拝借）
-# TODO: miio 色がうまくされないみたいなので直す
-export LSCOLORS=exfxcxdxbxegedabagacad
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-export ZLS_COLORS=$LS_COLORS
+# LS時の色を変更
 
-# いとおからもらった所
-# こっちだとLinuxカラーにしてくれるらしい？
-#case "${OSTYPE}" in
-#freebsd*|darwin*)
-#  export LS_COLORS=ExGxFxdxCxDxDxhbadExEx
-#  ;;
-#*)
-#  eval `dircolors`
-#  ;;
-#esac
-#zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-export ZLS_COLORS=$LS_COLORS
-#echo $LSCOLORS
-#echo $LS_COLORS
+# Color Settings
+autoload -U colors
+colors
+
+case "${TERM}" in
+xterm)
+    export TERM=xterm-color
+
+    ;;
+kterm)
+    export TERM=kterm-color
+    # set BackSpace control character
+
+    stty erase
+    ;;
+
+cons25)
+    unset LANG
+  export LSCOLORS=ExFxCxdxBxegedabagacad
+
+    export LS_COLORS='di=01;32:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
+    zstyle ':completion:*' list-colors \
+        'di=;36;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
+    ;;
+
+kterm*|xterm*)
+   # Terminal.app
+#    precmd() {
+#        echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+#    }
+    # export LSCOLORS=exfxcxdxbxegedabagacad
+    # export LSCOLORS=gxfxcxdxbxegedabagacad
+    # export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
+
+    export CLICOLOR=1
+    export LSCOLORS=ExFxCxDxBxegedabagacad
+    export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+    alias gls="gls --color"
+    zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+    ;;
+
+dumb)
+    echo "Welcome Emacs Shell"
+    ;;
+esac
+
+
 
 # プロンプト
 local GREEN=$'%{\e[1;32m%}'
@@ -29,8 +57,10 @@ local YELLOW=$'%{\e[1;33m%}'
 local BLUE=$'%{\e[1;34m%}'
 local WATER=$'%{\e[1;36m%}'
 local DEFAULT=$'%{\e[1;m%}'
+prompt_host="$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]')"  # Current host name
+prompt_date="%D{%H:%M:%S}"   # Datetime YYYY/mm/dd HH:MM
 #PROMPT=$'\n'$BLUE'${USER}@${HOSTNAME} '$WATER'%~ '$'\n'$DEFAULT'%(!.#.$) '
-PROMPT=$'\n'$BLUE'${USER}@${HOSTNAME} '"%B%{${BLUE}%}%(5~.%-2~/%{${BLUE}%}(ry%{${BLUE}%}/%2~.%~)%(!.#.$) %{${BLUE}%}%"' '$'\n'$DEFAULT'%(!.#.$) '
+PROMPT=$'\n'$BLUE'[${USER}@${prompt_host}] '"%B%{${BLUE}%}%(5~.%-2~/%{${WATER}%}(ry%{${BLUE}%}/%2~.%~)%(!.#.$) %{${YELLOW}%}[input time:${prompt_date}]%{${BLUE}%}%"' '$'\n'$DEFAULT'%(!.#.$) '
 setopt PROMPT_SUBST
 
 # 右プロンプトはvcs関連を表示
