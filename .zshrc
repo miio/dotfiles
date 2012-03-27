@@ -6,7 +6,6 @@ export LANG=ja_JP.UTF-8
 # Color Settings
 autoload -U colors
 colors
-
 case "${TERM}" in
 xterm)
     export TERM=xterm-color
@@ -49,7 +48,15 @@ dumb)
     ;;
 esac
 
-
+# screen SSH settings
+# SSH接続時に新しいウインドウにする
+if [[ $TERM == "screen-256color" ]]; then
+   function ssh_tmux() {
+     eval server=\${$#}
+     eval tmux new-window -n "'${server}'" "'ssh $@'"
+   }
+   alias ssh=ssh_tmux
+fi
 
 # プロンプト
 local GREEN=$'%{\e[1;32m%}'
