@@ -50,7 +50,7 @@ esac
 
 # screen SSH settings
 # SSH接続時に新しいウインドウにする
-if [[ $TERM == "screen-256color" ]]; then
+if [[ $TERM == "xterm-256color" ]]; then
    function ssh_tmux() {
      eval server=\${$#}
      eval tmux new-window -n "'${server}'" "'ssh $@'"
