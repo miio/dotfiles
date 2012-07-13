@@ -1,6 +1,9 @@
 # 言語
 export LANG=ja_JP.UTF-8
 
+# PATH
+PATH=$HOME/dotfiles/bin_share:$PATH
+
 # LS時の色を変更
 
 # Color Settings
@@ -50,6 +53,7 @@ esac
 
 # screen SSH settings
 # SSH接続時に新しいウインドウにする
+# 何か複窓だと挙動おかしい。
 if [[ $TERM == "xterm-256color" ]]; then
    function ssh_tmux() {
      eval server=\${$#}
@@ -67,7 +71,8 @@ local DEFAULT=$'%{\e[1;m%}'
 prompt_host="$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]')"  # Current host name
 prompt_date="%D{%H:%M:%S}"   # Datetime YYYY/mm/dd HH:MM
 #PROMPT=$'\n'$BLUE'${USER}@${HOSTNAME} '$WATER'%~ '$'\n'$DEFAULT'%(!.#.$) '
-PROMPT=$'\n'$BLUE'[${USER}@${prompt_host}] '"%B%{${BLUE}%}%(5~.%-2~/%{${WATER}%}(ry%{${BLUE}%}/%2~.%~)%(!.#.$) %{${YELLOW}%}[input time:${prompt_date}]%{${BLUE}%}%"' '$'\n'$DEFAULT'%(!.#.$) '
+#PROMPT=$'\n'$BLUE'[${USER}@${prompt_host}] '"%B%{${BLUE}%}%(5~.%-2~/%{${WATER}%}(ry%{${BLUE}%}/%2~.%~)%(!.#.$) %{${YELLOW}%}[input time:${prompt_date}]%{${BLUE}%}%"' '$'\n'$DEFAULT'%(!.#.$) '
+PROMPT=$'\n'$BLUE'[${USER}@${prompt_host}]'"%{%(?.$fg[cyan].$fg[red])%}%(?.(▰╹◡╹%).ヾ(｡>﹏<｡%)ﾉﾞ)%B%{${BLUE}%}%(5~.%-2~/%{${WATER}%}(ry%{${BLUE}%}/%2~.%~)%(!.#.$) %{${YELLOW}%}[input time:${prompt_date}]%{${BLUE}%}%"' '$'\n'$DEFAULT'%(!.#.$) '
 setopt PROMPT_SUBST
 
 # 右プロンプトはvcs関連を表示
