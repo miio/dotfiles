@@ -2,6 +2,12 @@
 " 基本設定
 "---------------------------------------------------------
 
+" 起動時メッセージを表示しない
+set shortmess& shortmess+=I
+"エラー時の音とビジュアルベルの抑制(gvimは.gvimrcで設定)
+set noerrorbells
+set novisualbell
+
 " 自動コマンド削除
 autocmd!
 
@@ -36,6 +42,7 @@ command! -bang Rb :Unite neobundle/install:<bang>
 command! Tmp edit ~/Dropbox/tmp.txt
 command! Temp edit ~/Dropbox/tmp.txt
 
+nnoremap C-q VimFiler -split -simple -winwidth=35 -no-quit
 "変更されたときに自動読み込み
 set autoread
 
@@ -327,7 +334,7 @@ endif
 " let g:skk_show_candidates_count = 2
 
 " lingr
-let g:lingr_vim_user = 'tek_koc'
+let g:lingr_vim_user = 'miio'
 if filereadable(expand('~/Dropbox/.password/.lingr_account.vim'))
     source ~/Dropbox/.password/.lingr_account.vim
 endif
@@ -522,37 +529,37 @@ let g:ref_phpmanual_path = $HOME . '/.vim/phpmanual'
 " neocomplcache設定
 
 " ファイル名補完
-inoremap <expr><C-x><C-f>  neocomplcache#manual_filename_complete()
+" inoremap <expr><C-x><C-f>  neocomplcache#manual_filename_complete()
 
 " omni補完
-inoremap <expr><C-x><C-o> &filetype == 'vim' ? "\<C-x><C-v><C-p>" : neocomplcache#manual_omni_complete()
+" inoremap <expr><C-x><C-o> &filetype == 'vim' ? "\<C-x><C-v><C-p>" : neocomplcache#manual_omni_complete()
 
 " <C-h>のときにポップアップを消す
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."<C-h>"
+" inoremap <expr><C-h> neocomplcache#smart_close_popup()."<C-h>"
 
 " <C-f>で補完を確定
-inoremap <expr><C-f> neocomplcache#close_popup()
+" inoremap <expr><C-f> neocomplcache#close_popup()
 
 " <C-e>で補完をキャンセル
-inoremap <expr><C-e> neocomplcache#cancel_popup()
+" inoremap <expr><C-e> neocomplcache#cancel_popup()
 
 " スニペット
-imap <C-s> <Plug>(neocomplcache_snippets_expand)
-smap <C-s> <Plug>(neocomplcache_snippets_expand)
+" imap <C-s> <Plug>(neocomplcache_snippets_expand)
+" smap <C-s> <Plug>(neocomplcache_snippets_expand)
 
-let g:neocomplcache_enable_at_startup = 1 " 自動起動
-let g:neocomplcache_enable_smart_case = 1 " 大文字打つまで、小文字大文字区別しない
-let g:neocomplcache_enable_underbar_completion = 1	" 区切り文字の補完を有効化
-let g:neocomplcache_caching_limit_file_size = 500000000 " キャッシュするファイルサイズを増やす
-let g:neocomplcache_min_syntax_length = 3
-let g:NeoComplCache_EnableInfo = 1
-let g:neocomplcache_dictionary_file_type_lists = {
-            \'default' : '',
-            \'php' : $HOME.'/.vim/dict/php.dict',
-            \'scala' : $HOME.'/.vim/dict/scala.dict',
-            \'vimshell' : $HOME.'/.vim/.vimshell_hist'
-            \}
-let g:NeoComplCache_SnippetsDir = $HOME . '/.vim/snippets'
+" let g:neocomplcache_enable_at_startup = 1 " 自動起動
+" let g:neocomplcache_enable_smart_case = 1 " 大文字打つまで、小文字大文字区別しない
+"let g:neocomplcache_enable_underbar_completion = 1	" 区切り文字の補完を有効化
+" let g:neocomplcache_caching_limit_file_size = 500000000 " キャッシュするファイルサイズを増やす
+" let g:neocomplcache_min_syntax_length = 3
+" let g:NeoComplCache_EnableInfo = 1
+" let g:neocomplcache_dictionary_file_type_lists = {
+ "           \'default' : '',
+"            \'php' : $HOME.'/.vim/dict/php.dict',
+"            \'scala' : $HOME.'/.vim/dict/scala.dict',
+"            \'vimshell' : $HOME.'/.vim/.vimshell_hist'
+"            \}
+"let g:NeoComplCache_SnippetsDir = $HOME . '/.vim/snippets'
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -728,8 +735,13 @@ function! s:GetHighlight(hi)
   let hl = substitute(hl, 'xxx', '', '')
   return hl
 endfunction
+
 "============================================================================================================================================
 
+" マウススクロール有効化
+set mouse=a
+
+" TODO ローカル環境依存のvimrcも読めるようにしたい
 
 if has("gui_running")
     " gvimrcも読み込む

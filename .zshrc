@@ -54,13 +54,13 @@ esac
 # screen SSH settings
 # SSH接続時に新しいウインドウにする
 # 何か複窓だと挙動おかしい。
-if [[ $TERM == "xterm-256color" ]]; then
-   function ssh_tmux() {
-     eval server=\${$#}
-     eval tmux new-window -n "'${server}'" "'ssh $@'"
-   }
-   alias ssh=ssh_tmux
-fi
+#if [[ $TERM == "xterm-256color" ]]; then
+#   function ssh_tmux() {
+#     eval server=\${$#}
+#     eval tmux new-window -n "'${server}'" "'ssh $@'"
+#   }
+#   alias ssh=ssh_tmux
+#fi
 
 # プロンプト
 local GREEN=$'%{\e[1;32m%}'
@@ -221,17 +221,18 @@ alias svnlog="svn log --verbose L"
 alias svnup="svn up"
 
 # app_alias
-# alias vim="/opt/local/bin/vim"
+alias vim="/usr/local/bin/vim"
+alias php="/usr/local/bin/php"
 #alias coffee="coffee@1.0.1"
 
 
 #RVM params
- [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 #if MacVim Installed Launch from MacVim
-if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
-  alias vim='/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab 2>/dev/null >/dev/null'
-  export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-wait'
-#  export EDITOR=vim
-fi
-
+#if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
+#  alias vim='/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab 2>/dev/null >/dev/null'
+#  export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-wait'
+  export EDITOR=vim
+#fi
+eval "$(rbenv init -)";
