@@ -185,7 +185,10 @@ NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'skammer/vim-css-color'
+
+" どうやらロードに時間がかかりすぎるので一旦オフ
+" NeoBundle 'skammer/vim-css-color'
+
 NeoBundle 'cakebaker/scss-syntax.vim'
 "NeoBundle 'YankRing.vim'
 NeoBundle 'sjl/gundo.vim'
