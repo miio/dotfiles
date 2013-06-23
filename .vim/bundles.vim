@@ -7,6 +7,8 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/.bundle'))
 endif
 
+
+
 " color-scheme
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'git://github.com/vim-scripts/mrkn256.vim.git'
@@ -28,10 +30,10 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'scrooloose/nerdcommenter'
 
 " easymotion
-NeoBundle 'Lokaltog/vim-easymotion'
+"NeoBundle 'Lokaltog/vim-easymotion'
 
 " ブラウザで開く
-NeoBundle 'tyru/open-browser.vim'
+"NeoBundle 'tyru/open-browser.vim'
 
 " ambicmd
 NeoBundle 'thinca/vim-ambicmd'
@@ -86,8 +88,8 @@ NeoBundle 'Shougo/vimfiler'
 
 " shell
 NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'ujihisa/vimshell-ssh'
+"NeoBundle 'Shougo/vimshell'
+"NeoBundle 'ujihisa/vimshell-ssh'
 
 " echodoc
 NeoBundle 'Shougo/echodoc'
@@ -167,7 +169,7 @@ NeoBundle 'mfumi/viminesweeper'
 NeoBundle 'mfumi/lightsout.vim'
 
 " Add from itochan315
-NeoBundle 'Align'
+"NeoBundle 'Align'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'ruby-matchit'
 NeoBundle 'thinca/vim-quickrun'
@@ -175,7 +177,7 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'nono/jquery.vim'
-NeoBundle 'nginx.vim'
+"NeoBundle 'nginx.vim'
 NeoBundle 'basyura/jslint.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'hallison/vim-ruby-sinatra'
@@ -185,7 +187,7 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'skammer/vim-css-color'
 NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'YankRing.vim'
+"NeoBundle 'YankRing.vim'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 't9md/vim-textmanip'
 NeoBundle 'kana/vim-operator-user'
@@ -196,8 +198,14 @@ NeoBundle 'tpope/vim-git'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'mattn/gist-vim'
-NeoBundle 'sudo.vim'
-NeoBundle 'The-NERD-Commenter'
+"NeoBundle 'sudo.vim'
+"NeoBundle 'The-NERD-Commenter'
+
+NeoBundle 'taichouchou2/alpaca_powertabline'
+" ステータスラインをカッコよくする
+NeoBundle 'Lokaltog/vim-powerline'
+" 上のはDeprecatedだけど下のがうまくはいらなかった...
+"NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 
 filetype plugin on
 filetype indent on
