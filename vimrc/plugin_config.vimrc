@@ -130,3 +130,6 @@ elseif has('win32')
 else
 	let g:vimproc_dll_path = $HOME . '/.vim/vimproc/autoload/proc.so'
 endif
+
+" vim-indent-guides
+let g:indent_guides_enable_on_vim_startup=1
